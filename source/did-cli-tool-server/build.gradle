@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'org.springframework.boot' version '3.2.6'
+    id 'io.spring.dependency-management' version '1.1.5'
 }
 
 repositories {
@@ -8,10 +10,11 @@ repositories {
 
 group = 'org.omnione.did'
 
-jar {
+bootJar {
     archiveBaseName.set('did-cli-tool-server')
     archiveVersion.set('1.0.0')
     archiveClassifier.set('')
+    enabled = true
 }
 
 java {
@@ -29,10 +32,7 @@ dependencies {
     implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
     implementation files('libs/did-core-sdk-server-1.0.0.jar')
     implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
-
 }
-
-
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'

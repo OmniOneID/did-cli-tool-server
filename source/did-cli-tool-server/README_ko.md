@@ -15,6 +15,8 @@
 ```groovy
 plugins {
     id 'java'
+    id 'org.springframework.boot' version '3.2.6'
+    id 'io.spring.dependency-management' version '1.1.5'
 }
 
 repositories {
@@ -23,10 +25,11 @@ repositories {
 
 group = 'org.omnione.did'
 
-jar {
+bootJar {
     archiveBaseName.set('did-cli-tool-server')
     archiveVersion.set('1.0.0')
     archiveClassifier.set('')
+    enabled = true
 }
 
 java {
@@ -44,10 +47,9 @@ dependencies {
     implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
     implementation files('libs/did-core-sdk-server-1.0.0.jar')
     implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
-
 }
 ```
-2. IDE에서 `Gradle` 창을 열고, 프로젝트의 `Tasks > build > clean & build` 태스크를 실행 또는 `./gradlew clean & build` 를 터미널 창에 입력한다.
+2. IDE에서 `Gradle` 창을 열고, 프로젝트의 `Task > Build > Clean and Build` 태스크를 실행 또는 `./gradlew clean build` 를 터미널 창에 입력한다.
 3. 실행이 완료되면 `{projetPath}/build/libs/` 폴더에 `did-cli-tool-server-1.0.0.jar` 파일이 생성된다.
 
 <br>

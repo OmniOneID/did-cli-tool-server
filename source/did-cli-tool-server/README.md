@@ -17,6 +17,8 @@ This document is a guide to using the OpenDID Server CLI-Tool, which provides th
 ```groovy
 plugins {
     id 'java'
+    id 'org.springframework.boot' version '3.2.6'
+    id 'io.spring.dependency-management' version '1.1.5'
 }
 
 repositories {
@@ -25,10 +27,11 @@ repositories {
 
 group = 'org.omnione.did'
 
-jar {
+bootJar {
     archiveBaseName.set('did-cli-tool-server')
     archiveVersion.set('1.0.0')
     archiveClassifier.set('')
+    enabled = true
 }
 
 java {
@@ -46,10 +49,9 @@ dependencies {
     implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
     implementation files('libs/did-core-sdk-server-1.0.0.jar')
     implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
-
 }
 ```
-2. Open the `Gradle` tab in IDE and run the project's `Task > Build > Clean and Build` task, or type `./gradlew clean & build` in a terminal.
+2. Open the `Gradle` tab in IDE and run the project's `Task > Build > Clean and Build` task, or type `./gradlew clean build` in a terminal.
 3. Once the execution is complete, the `did-cli-tool-server-1.0.0.jar` file will be generated in the `{projetPath}/build/libs/` folder.
 
 
