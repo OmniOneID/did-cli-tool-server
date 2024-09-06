@@ -63,15 +63,16 @@ Libraries can be found in the [build folder](did-cli-tool-server/source/did-cli-
 2. Add the following dependencies to the build.gradle of the server project.
 
 ```groovy
-    implementation files('libs/did-datamodel-sdk-server-1.0.0.jar')
-    implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
-    implementation files('libs/did-core-sdk-server-1.0.0.jar')
-    implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
+   implementation 'org.bouncycastle:bcprov-jdk18on:1.78.1'
+   implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+   implementation group: 'info.picocli', name: 'picocli', version: '4.2.0'
+   implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.9'
+   implementation 'org.hibernate.validator:hibernate-validator:7.0.0.Final'
 
-    implementation 'org.bouncycastle:bcprov-jdk18on:1.78.1'
-    implementation group: 'info.picocli', name: 'picocli', version: '4.2.0'
-    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.9'
-    implementation 'org.hibernate.validator:hibernate-validator:7.0.0.Final'
+   implementation files('libs/did-datamodel-sdk-server-1.0.0.jar')
+   implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
+   implementation files('libs/did-core-sdk-server-1.0.0.jar')
+   implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
 ```
 3. Sync `Gradle` to ensure the dependencies are properly added.
 
