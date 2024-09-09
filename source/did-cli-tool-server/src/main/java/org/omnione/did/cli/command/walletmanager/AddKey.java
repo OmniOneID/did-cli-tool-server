@@ -29,12 +29,12 @@ public class AddKey implements Callable<Void> {
     @Override
     public Void call() throws Exception {
         System.out.println("== wallet add key call ==");
-        CommandUtils.printdCommadMssage(this);
+        CommandUtils.printedCommandMessage(this);
 
         File file = new File(walletManager);
         if (!file.exists()) {
             System.out.println("Not exists WalletManager file...");
-            System.out.println("[FAIL] WalletManager remove key fail...");
+            System.out.println("[FAIL] WalletManager add key fail...");
             return null;
         }
 

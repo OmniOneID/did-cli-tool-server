@@ -6,7 +6,6 @@ import org.omnione.did.wallet.enums.WalletEncryptType;
 import org.omnione.did.wallet.key.WalletManagerFactory;
 import org.omnione.did.wallet.key.WalletManagerInterface;
 import picocli.CommandLine.Command;
-import picocli.CommandLine.Help.Visibility;
 import picocli.CommandLine.Option;
 
 import java.io.File;
@@ -30,7 +29,7 @@ public class CreateWallet implements Callable<Void> {
     @Override
     public Void call() throws Exception {
         System.out.println("== new wallet create call ==");
-        CommandUtils.printdCommadMssage(this);
+        CommandUtils.printedCommandMessage(this);
 
         // 0. remove file
         if (existFileRemove) {

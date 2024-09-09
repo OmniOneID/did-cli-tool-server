@@ -12,7 +12,6 @@ import org.omnione.did.crypto.enums.DigestType;
 import org.omnione.did.crypto.enums.MultiBaseType;
 import org.omnione.did.crypto.util.DigestUtils;
 import org.omnione.did.crypto.util.MultiBaseUtils;
-import org.omnione.did.wallet.crypto.sign.SignatureHelper;
 import org.omnione.did.wallet.key.WalletManagerFactory;
 import org.omnione.did.wallet.key.WalletManagerInterface;
 import picocli.CommandLine.Command;
@@ -43,7 +42,7 @@ public class RemoveKey implements Callable<Void> {
     @Override
     public Void call() throws Exception {
         System.out.println("== did remove key call ==");
-        CommandUtils.printdCommadMssage(this);
+        CommandUtils.printedCommandMessage(this);
 
         // 1. connect
         WalletManagerInterface manager = WalletManagerFactory.getWalletManager(WalletManagerFactory.WalletManagerType.FILE);

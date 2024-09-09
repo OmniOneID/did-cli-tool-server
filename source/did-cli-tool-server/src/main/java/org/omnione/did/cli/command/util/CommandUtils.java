@@ -10,6 +10,7 @@ import com.google.gson.JsonObject;
 import org.omnione.did.cli.command.Omni;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class CommandUtils {
 
@@ -21,7 +22,7 @@ public class CommandUtils {
         String data = null;
         try {
             fr = new FileInputStream(file);
-            ir = new InputStreamReader(fr, "utf-8");
+            ir = new InputStreamReader(fr, StandardCharsets.UTF_8);
             br = new BufferedReader(ir);
             StringBuffer buf = new StringBuffer();
             String line = "";
@@ -30,14 +31,11 @@ public class CommandUtils {
             }
 
             data = buf.toString();
-
         } catch (UnsupportedEncodingException e1) {
             e1.printStackTrace();
         } catch (FileNotFoundException e1) {
-            // TODO Auto-generated catch block
             e1.printStackTrace();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } finally {
             try {
@@ -45,8 +43,8 @@ public class CommandUtils {
                 ir.close();
                 fr.close();
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
+                System.out.println("An error occurred while working with the file. Verify that the file exists and check access permissions.");
             }
         }
 
@@ -62,17 +60,24 @@ public class CommandUtils {
 
     // string to file
     public static void writeFile(File file, String data) {
+        BufferedWriter out = null;
         try {
-            BufferedWriter output = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "utf-8"));
-            output.write(data);
-            output.close();
+            out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
+            out.write(data);
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("An error occurred while working with the file. Verify that the file exists and check access permissions.");
+            }
         }
     }
 
-    // print commamnd
-    public static void printdCommadMssage(Object child) {
+    // print command
+    public static void printedCommandMessage(Object child) {
         String packageName = child.getClass().getName();
         String[] array = packageName.split("\\.");
 

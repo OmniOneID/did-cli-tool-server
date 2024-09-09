@@ -22,7 +22,7 @@ public class Version implements Callable<Void> {
     @Override
     public Void call() throws Exception {
         System.out.println("== did get version id call ==");
-        CommandUtils.printdCommadMssage(this);
+        CommandUtils.printedCommandMessage(this);
 
         // 1. exists did?
         File file = didFile;
