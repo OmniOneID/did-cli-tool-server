@@ -797,6 +797,7 @@ java -jar did-cli-tool-server-1.0.0.jar did removeKey -m omni.wallet -f omni.did
   ```shell
   # cli.properties
   key-id=invoke2
+  did-file=omni.did
   ```
 
 ### Command Result Log
@@ -954,7 +955,7 @@ java -jar did-cli-tool-server-1.0.0.jar did addService -m omni.wallet -f omni.di
   # ex. homepage, certificate-vc
   did-service-id=homepage
   ## DID Service url list (note) comma(,) base
-  # (ex. did-service-url=https://did.omnione.net, https://did.omnione.net2)
+  # (ex. did-service-url=https://did.omnione.net,https://did.omnione.net2)
   did-service-url-list=https://did.omnione.net,https://did.omnione.net2
   ```
 
@@ -1123,7 +1124,7 @@ java -jar did-cli-tool-server-1.0.0.jar did removeService -m omni.wallet -f omni
   # ex. homepage, certificate-vc
   did-service-id=homepage
   ## DID Service url list (note) comma(,) base
-  # (ex. did-service-url=https://did.omnione.net, https://did.omnione.net2)
+  # (ex. did-service-url=https://did.omnione.net,https://did.omnione.net2)
   did-service-url=https://did.omnione.net
   ```
 

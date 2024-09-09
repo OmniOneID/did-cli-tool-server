@@ -62,16 +62,18 @@ did-cli-tool-server
 
 2. 서버 프로젝트의 build gradle에 아래 의존성을 추가한다.
 
-```groovy
-    implementation files('libs/did-datamodel-sdk-server-1.0.0.jar')
-    implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
-    implementation files('libs/did-core-sdk-server-1.0.0.jar')
-    implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
 
-    implementation 'org.bouncycastle:bcprov-jdk18on:1.78.1'
-    implementation group: 'info.picocli', name: 'picocli', version: '4.2.0'
-    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.9'
-    implementation 'org.hibernate.validator:hibernate-validator:7.0.0.Final'
+```groovy
+   implementation 'org.bouncycastle:bcprov-jdk18on:1.78.1'
+   implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+   implementation group: 'info.picocli', name: 'picocli', version: '4.2.0'
+   implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.9'
+   implementation 'org.hibernate.validator:hibernate-validator:7.0.0.Final'
+   
+   implementation files('libs/did-datamodel-sdk-server-1.0.0.jar')
+   implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
+   implementation files('libs/did-core-sdk-server-1.0.0.jar')
+   implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
 ```
 3. `Gradle`을 동기화하여 의존성이 제대로 추가되었는지 확인한다.
 

@@ -17,22 +17,17 @@ This document is a guide to using the OpenDID Server CLI-Tool, which provides th
 ```groovy
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.2.6'
-    id 'io.spring.dependency-management' version '1.1.5'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
 repositories {
     mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 group = 'org.omnione.did'
-
-bootJar {
-    archiveBaseName.set('did-cli-tool-server')
-    archiveVersion.set('1.0.0')
-    archiveClassifier.set('')
-    enabled = true
-}
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -41,6 +36,7 @@ java {
 
 dependencies {
     implementation 'org.bouncycastle:bcprov-jdk18on:1.78.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
     implementation group: 'info.picocli', name: 'picocli', version: '4.2.0'
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.9'
     implementation 'org.hibernate.validator:hibernate-validator:7.0.0.Final'
@@ -49,6 +45,30 @@ dependencies {
     implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
     implementation files('libs/did-core-sdk-server-1.0.0.jar')
     implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
+}
+
+shadowJar {
+    archiveBaseName.set('did-cli-tool-server')
+    archiveVersion.set('1.0.0')
+    archiveClassifier.set('')
+
+    manifest {
+        attributes(
+                'Main-Class': 'org.omnione.did.cli.OmniCLI'
+        )
+    }
+}
+
+tasks.named('jar').configure {
+    enabled = false
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+build {
+    dependsOn shadowJar
 }
 ```
 2. Open the `Gradle` tab in IDE and run the project's `Task > Build > Clean and Build` task, or type `./gradlew clean build` in a terminal.
