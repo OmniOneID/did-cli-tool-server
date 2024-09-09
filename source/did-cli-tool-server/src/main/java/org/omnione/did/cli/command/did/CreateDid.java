@@ -72,7 +72,7 @@ public class CreateDid implements Callable<Void> {
     @Override
     public Void call() throws Exception {
         System.out.println("== new did create call ==");
-        CommandUtils.printdCommadMssage(this);
+        CommandUtils.printedCommandMessage(this);
 
         // 0. remove file
         if (existFileRemove) {

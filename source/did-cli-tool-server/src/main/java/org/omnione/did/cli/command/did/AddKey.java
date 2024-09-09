@@ -51,7 +51,7 @@ public class AddKey implements Callable<Void> {
     @Override
     public Void call() throws Exception {
         System.out.println("== did add key call ==");
-        CommandUtils.printdCommadMssage(this);
+        CommandUtils.printedCommandMessage(this);
 
         // 1. connect
         WalletManagerInterface manager = WalletManagerFactory.getWalletManager(WalletManagerFactory.WalletManagerType.FILE);

@@ -25,7 +25,7 @@ public class RemoveKey implements Callable<Void> {
     @Override
     public Void call() throws Exception {
         System.out.println("== walletManager remove key call ==");
-        CommandUtils.printdCommadMssage(this);
+        CommandUtils.printedCommandMessage(this);
 
         File file = new File(walletManager);
         if (!file.exists()) {

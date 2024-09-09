@@ -51,7 +51,7 @@ public class Generator implements Callable<Void> {
     @Override
     public Void call() throws Exception {
         java.lang.System.out.println("== new wallet, did file create call ==");
-        CommandUtils.printdCommadMssage(this);
+        CommandUtils.printedCommandMessage(this);
 
         CreateWallet createWallet = new CreateWallet();
         String[] walletKeyList = {"assert", "auth", "keyagree", "invoke"};

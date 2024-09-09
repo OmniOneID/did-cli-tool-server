@@ -50,7 +50,7 @@ public class AddService implements Callable<Void> {
     @Override
     public Void call() throws Exception {
         System.out.println("== did add service call ==");
-        CommandUtils.printdCommadMssage(this);
+        CommandUtils.printedCommandMessage(this);
 
         // 1. connect
         WalletManagerInterface manager = WalletManagerFactory.getWalletManager(WalletManagerFactory.WalletManagerType.FILE);
@@ -80,7 +80,9 @@ public class AddService implements Callable<Void> {
 
             // 3. add service end point
             for (String url : serviceUrls) {
-                didManager.addServiceEndPoint(serviceId, DidServiceType.fromString(serviceType), url.trim());
+                if(url != null) {
+                    didManager.addServiceEndPoint(serviceId, DidServiceType.fromString(serviceType), url.trim());
+                }
             }
 
             // 4. req signature param
