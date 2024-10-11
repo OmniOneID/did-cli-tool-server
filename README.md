@@ -10,7 +10,7 @@ did-cli-tool-server
 ├── CLA.md
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
-├── LICENSE.dependencies.md
+├── LICENSE-dependencies.md
 ├── MAINTAINERS.md
 ├── README.md
 ├── README_ko.md
@@ -45,10 +45,77 @@ did-cli-tool-server
 | CHANGELOG.md            | Version-specific changes in the project         |
 | CODE_OF_CONDUCT.md      | Code of conduct for contributors                |
 | CONTRIBUTING.md         | Contribution guidelines and procedures          |
-| LICENSE.dependencies.md | Licenses for the project’s dependency libraries |
+| LICENSE-dependencies.md | Licenses for the project’s dependency libraries |
 | MAINTAINERS.md          | General guidelines for maintaining              |
 | RELEASE-PROCESS.md      | Release process                                 |
 | SECURITY.md             | Security policies and vulnerability reporting   |
+
+## Build Method
+: Create a JAR file based on the build.gradle file of this SDK project.
+1. Open the `build.gradle` file of your project and add a task from the configuration file as shown below.
+
+```groovy
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+group = 'org.omnione.did'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+dependencies {
+    implementation 'org.bouncycastle:bcprov-jdk18on:1.78.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation group: 'info.picocli', name: 'picocli', version: '4.2.0'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.9'
+    implementation 'org.hibernate.validator:hibernate-validator:7.0.0.Final'
+
+    implementation files('libs/did-datamodel-sdk-server-1.0.0.jar')
+    implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
+    implementation files('libs/did-core-sdk-server-1.0.0.jar')
+    implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
+}
+
+shadowJar {
+    archiveBaseName.set('did-cli-tool-server')
+    archiveVersion.set('1.0.0')
+    archiveClassifier.set('')
+
+    manifest {
+        attributes(
+                'Main-Class': 'org.omnione.did.cli.OmniCLI'
+        )
+    }
+}
+
+tasks.named('jar').configure {
+    enabled = false
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+build {
+    dependsOn shadowJar
+}
+```
+2. Open the `Gradle` tab in IDE and run the project's `Task > Build > Clean and Build` task, or type `./gradlew clean build` in a terminal.
+3. Once the execution is complete, the `did-cli-tool-server-1.0.0.jar` file will be generated in the `{projetPath}/build/libs/` folder.
+
+
+<br>
 
 ## Libraries
 
