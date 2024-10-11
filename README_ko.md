@@ -10,7 +10,7 @@ did-cli-tool-server
 ├── CLA.md
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
-├── LICENSE.dependencies.md
+├── LICENSE-dependencies.md
 ├── MAINTAINERS.md
 ├── README.md
 ├── README_ko.md
@@ -45,10 +45,75 @@ did-cli-tool-server
 | CHANGELOG.md| 프로젝트 버전별 변경사항           |
 | CODE_OF_CONDUCT.md| 기여자의 행동강령            |
 | CONTRIBUTING.md| 기여 절차 및 방법           |
-| LICENSE.dependencies.md| 프로젝트 의존성 라이브러리에 대한 라이선스            |
+| LICENSE-dependencies.md| 프로젝트 의존성 라이브러리에 대한 라이선스            |
 | MAINTAINERS.md          | 유지관리 가이드              |
 | RELEASE-PROCESS.md      | 릴리즈 절차                                |
 | SECURITY.md| 보안취약점 보고 및 보안정책            | 
+
+## 빌드 방법
+: 본 SDK 프로젝트의 build.gradle 파일을 기반으로 JAR 파일을 생성한다.
+1. 프로젝트의 `build.gradle` 파일을 열고 아래와 같은 구성파일의 태스크를 추가한다.
+```groovy
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+group = 'org.omnione.did'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+dependencies {
+    implementation 'org.bouncycastle:bcprov-jdk18on:1.78.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation group: 'info.picocli', name: 'picocli', version: '4.2.0'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.9'
+    implementation 'org.hibernate.validator:hibernate-validator:7.0.0.Final'
+
+    implementation files('libs/did-datamodel-sdk-server-1.0.0.jar')
+    implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
+    implementation files('libs/did-core-sdk-server-1.0.0.jar')
+    implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
+}
+
+shadowJar {
+    archiveBaseName.set('did-cli-tool-server')
+    archiveVersion.set('1.0.0')
+    archiveClassifier.set('')
+
+    manifest {
+        attributes(
+                'Main-Class': 'org.omnione.did.cli.OmniCLI'
+        )
+    }
+}
+
+tasks.named('jar').configure {
+    enabled = false
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+build {
+    dependsOn shadowJar
+}
+```
+2. IDE에서 `Gradle` 창을 열고, 프로젝트의 `Task > Build > Clean and Build` 태스크를 실행 또는 `./gradlew clean build` 를 터미널 창에 입력한다.
+3. 실행이 완료되면 `{projetPath}/build/libs/` 폴더에 `did-cli-tool-server-1.0.0.jar` 파일이 생성된다.
+
+<br>
 
 ## 라이브러리
 
