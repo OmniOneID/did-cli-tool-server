@@ -27,8 +27,6 @@ For ordinary questions, we suggest you contact [active contributors](../../graph
 |---------------------------|-----------|--------------------------------------------|
 | Chorom Ham         | crham     | crham@raoncorp.com                   |
 | Eunjeong Lee         | ejlee8796 | ejlee8796@raoncorp.com                   |
-| Yeongjun Lee        | yjlee8806-OmniOneCoreRnDTeam | yjlee8806@raoncorp.com                   |
-| Jongyun Baek       | jybaek-raon    | jybaek@raoncorp.com                   |
 | Seungjae Yeo        | sjyeo98   | sjyeo@raoncorp.com                   |
 
 
