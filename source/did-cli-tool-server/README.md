@@ -80,7 +80,7 @@ build {
 
 ## SDK Application Method
 1. Open a terminal in the location of the module `did-cli-tool-server-1.0.0.jar` file.
-2. Refer to CLI-Tool_SERVER_API.md and enter the command you want to use.
+2. Refer to [CLI-Tool_SERVER_API](../../docs/api/CLI-Tool_SERVER_API.md) and enter the command you want to use.
 
 
 <br>
