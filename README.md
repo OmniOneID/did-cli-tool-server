@@ -10,6 +10,7 @@ did-cli-tool-server
 ├── CLA.md
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
+├── LICENSE
 ├── LICENSE-dependencies.md
 ├── MAINTAINERS.md
 ├── README.md
@@ -21,18 +22,20 @@ did-cli-tool-server
 │       ├── CLI-Tool_SERVER_API.md
 │       └── CLI-Tool_SERVER_API_ko.md
 └── source
-    └── did-cli-tool-server
-        ├── .gitignore
-        ├── build.gradle
-        ├── gradle
-        │    └── wrapper
-        ├── gradlew
-        ├── gradlew.bat
-        ├── libs
-        ├── README_ko.md
-        ├── README.md
-        ├── settings.gradle
-        └── src
+    ├── did-cli-tool-server
+    │   ├── .gitignore
+    │   ├── build.gradle
+    │   ├── gradle
+    │   │    └── wrapper
+    │   ├── gradlew
+    │   ├── gradlew.bat
+    │   ├── libs
+    │   ├── README_ko.md
+    │   ├── README.md
+    │   ├── settings.gradle
+    │   └── src
+    └── releases
+        └── did-cli-tool-server-1.0.0.jar
 ```
 
 | Name                    | Description                                     |
@@ -45,6 +48,7 @@ did-cli-tool-server
 | CHANGELOG.md            | Version-specific changes in the project         |
 | CODE_OF_CONDUCT.md      | Code of conduct for contributors                |
 | CONTRIBUTING.md         | Contribution guidelines and procedures          |
+| LICENSE | Apache 2.0 |
 | LICENSE-dependencies.md | Licenses for the project’s dependency libraries |
 | MAINTAINERS.md          | General guidelines for maintaining              |
 | RELEASE-PROCESS.md      | Release process                                 |
@@ -114,13 +118,13 @@ build {
 2. Open the `Gradle` tab in IDE and run the project's `Task > Build > Clean and Build` task, or type `./gradlew clean build` in a terminal.
 3. Once the execution is complete, the `did-cli-tool-server-1.0.0.jar` file will be generated in the `{projetPath}/build/libs/` folder.
 
-
 <br>
 
 ## Libraries
 
-Libraries can be found in the [build folder](did-cli-tool-server/source/did-cli-tool-server/build/libs).
+Libraries can be found in the [releases folder](source/did-cli-tool-server/releases).
 
+### Cli-Tool
 1. Copy each of the files below to the libs in your server project.
    <br> - `did-datamodel-server-1.0.0.jar`
    <br> - `did-crypto-sdk-server-1.0.0.jar`
@@ -154,4 +158,4 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_
 
 
 ## License
-Copyright 2024 Raonsecure
+[Apache 2.0](LICENSE)
