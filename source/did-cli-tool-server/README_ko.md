@@ -76,7 +76,7 @@ build {
 
 ## SDK 적용 방법
 1. 빌드된 서버 모듈 `did-cli-tool-server-1.0.0.jar` 파일의 위치에서 새로운 터미널 창을 연다.
-2. CLI-Tool_SERVER_API.md를 참고하여 사용할 명령어를 입력한다.
+2. [CLI-Tool_SERVER_API.md](../../docs/api/CLI-Tool_SERVER_API_ko.md)를 참고하여 사용할 명령어를 입력한다.
 
 <br>
 

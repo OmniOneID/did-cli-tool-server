@@ -10,6 +10,7 @@ did-cli-tool-server
 ├── CLA.md
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
+├── LICENSE
 ├── LICENSE-dependencies.md
 ├── MAINTAINERS.md
 ├── README.md
@@ -21,33 +22,36 @@ did-cli-tool-server
 │       ├── CLI-Tool_SERVER_API.md
 │       └── CLI-Tool_SERVER_API_ko.md
 └── source
-    └── did-cli-tool-server
-        ├── .gitignore
-        ├── build.gradle
-        ├── gradle
-        │    └── wrapper
-        ├── gradlew
-        ├── gradlew.bat
-        ├── libs
-        ├── README_ko.md
-        ├── README.md
-        ├── settings.gradle
-        └── src
+    ├── did-cli-tool-server
+    │   ├── .gitignore
+    │   ├── build.gradle
+    │   ├── gradle
+    │   │    └── wrapper
+    │   ├── gradlew
+    │   ├── gradlew.bat
+    │   ├── libs
+    │   ├── README_ko.md
+    │   ├── README.md
+    │   ├── settings.gradle
+    │   └── src
+    └── releases
+        └── did-cli-tool-server-1.0.0.jar
 ```
 
-|  이름 |         역할                    |
-| ------- | ------------------------------------ |
+|  이름 |         역할                   |
+| ------- | -----------------------------|
 | source  |  SDK 소스코드 프로젝트             |
 | docs  |   문서            |
 | ┖ api  |  API 가이드 문서          |
 | README.md  |  프로젝트의 전체적인 개요 설명            |
-| CLA.md             | Contributor License Agreement                |
+| CLA.md        | Contributor License Agreement        |
 | CHANGELOG.md| 프로젝트 버전별 변경사항           |
 | CODE_OF_CONDUCT.md| 기여자의 행동강령            |
 | CONTRIBUTING.md| 기여 절차 및 방법           |
-| LICENSE-dependencies.md| 프로젝트 의존성 라이브러리에 대한 라이선스            |
-| MAINTAINERS.md          | 유지관리 가이드              |
-| RELEASE-PROCESS.md      | 릴리즈 절차                                |
+| LICENSE | Apache 2.0 |
+| LICENSE-dependencies.md| 프로젝트 의존성 라이브러리에 대한 라이선스      |
+| MAINTAINERS.md     | 유지관리 가이드              |
+| RELEASE-PROCESS.md | 릴리즈 절차                        |
 | SECURITY.md| 보안취약점 보고 및 보안정책            | 
 
 ## 빌드 방법
@@ -117,7 +121,9 @@ build {
 
 ## 라이브러리
 
-라이브러리는 [build 폴더](did-cli-tool-server/source/did-cli-tool-server/build/libs)에서 찾을 수 있습니다.
+라이브러리는 [Releases](https://github.com/OmniOneID/did-cli-tool-server/releases) 에서 찾을 수 있습니다.
+
+### Cli-Tool
 
 1. 서버 프로젝트에 아래 목록의 각 파일을 복사한다.
    <br> - `did-datamodel-server-1.0.0.jar`
@@ -151,4 +157,4 @@ API 참조는 [여기](docs/api/CLI-Tool_SERVER_API_ko.md)에서 확인할 수 �
 Contributing 및 pull request 제출 절차에 대한 자세한 내용은 [CONTRIBUTING.md](CONTRIBUTING.md)와 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) 를 참조하세요.
 
 ## 라이선스
-Copyright 2024 Raonsec
+[Apache 2.0](LICENSE)
