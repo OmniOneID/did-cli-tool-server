@@ -23,7 +23,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build with Gradle Wrapper
-        run: ./gradlew clean build
+        run: gradle clean build
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
