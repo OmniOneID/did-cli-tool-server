@@ -11,7 +11,7 @@ did-cli-tool-server
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── LICENSE
-├── LICENSE-dependencies.md
+├── dependencies-license.md
 ├── MAINTAINERS.md
 ├── README.md
 ├── README_ko.md
@@ -39,7 +39,7 @@ did-cli-tool-server
 ```
 
 | Name                    | Description                                     |
-| ----------------------- | ----------------------------------------------- |
+|-------------------------|-------------------------------------------------|
 | source                  | SDK source code project                         |
 | docs                    | Documentation                                   |
 | ┖ api                   | API guide documentation                         |
@@ -48,8 +48,8 @@ did-cli-tool-server
 | CHANGELOG.md            | Version-specific changes in the project         |
 | CODE_OF_CONDUCT.md      | Code of conduct for contributors                |
 | CONTRIBUTING.md         | Contribution guidelines and procedures          |
-| LICENSE | Apache 2.0 |
-| LICENSE-dependencies.md | Licenses for the project’s dependency libraries |
+| LICENSE                 | Apache 2.0                                      |
+| dependencies-license.md | Licenses for the project’s dependency libraries |
 | MAINTAINERS.md          | General guidelines for maintaining              |
 | RELEASE-PROCESS.md      | Release process                                 |
 | SECURITY.md             | Security policies and vulnerability reporting   |
