@@ -151,6 +151,16 @@ Libraries can be found in the [Releases](https://github.com/OmniOneID/did-cli-to
 
 API Reference can be found [here](docs/api/CLI-Tool_SERVER_API.md)
 
+## Change Log
+
+ChangeLog can be found :
+<br>
+- [Change Log](CHANGELOG.md)
+
+## OpenDID Demonstration Videos <br>
+To watch our demonstration videos of the OpenDID system in action, please visit our [Demo Repository](https://github.com/OmniOneID/did-demo-server). <br>
+
+These videos showcase key features including user registration, VC issuance, and VP submission processes.
 
 ## Contributing
 

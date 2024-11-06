@@ -22,7 +22,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build with Gradle Wrapper
+      - name: Build with Gradle
         run: gradle clean build
 
       - name: Upload Build Artifact

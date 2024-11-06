@@ -152,6 +152,17 @@ build {
 
 API 참조는 [여기](docs/api/CLI-Tool_SERVER_API_ko.md)에서 확인할 수 있습니다.
 
+## Change Log
+
+Change Log에는 버전별 변경 사항과 업데이트가 자세히 기록되어 있습니다. 다음에서 확인할 수 있습니다:
+- [Change Log](CHANGELOG.md)
+
+## OpenDID 시연 영상
+
+OpenDID 시스템의 시연 영상을 보려면 [데모 Repository](https://github.com/OmniOneID/did-demo-server) 를 방문하십시오. <br>
+
+이 영상에서는 사용자 등록, VC 발급, VP 제출 프로세스 등 주요 기능을 시연합니다.
+
 ## 기여
 
 Contributing 및 pull request 제출 절차에 대한 자세한 내용은 [CONTRIBUTING.md](CONTRIBUTING.md)와 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) 를 참조하세요.
