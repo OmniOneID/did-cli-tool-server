@@ -23,9 +23,10 @@ CLI Tool
 - Date: 2024-08-29
 - Version: v1.0.0
 
-| Version | Date       | Changes      |
-| ------- | ---------- | ------------ |
-| v1.0.0 | 2024-08-29  | Initial version |
+| Version | Date       | Changes                                                |
+| ------- |------------|--------------------------------------------------------|
+| v1.0.0 | 2024-08-29 | Initial version                                        |
+| v1.0.0 | 2025-04-24 | Modify the command to support the SECP256k1 algorithm |
 
 <div style="page-break-after: always;"></div>
 
@@ -58,11 +59,11 @@ CLI Tool
 
 ### Command Options
 
-| Option                    | Type    | Description                | **M/O** | **Notes**                                     |
-| ------------------------- | ------- | -------------------------- | ------- | --------------------------------------------- |
-| -m, --wallet-manager             | string  | Wallet file name           | M       | Include the file extension.<br/>e.g., omni.wallet |
+| Option                        | Type    | Description                | **M/O** | **Notes**                                                                            |
+|-------------------------------| ------- | -------------------------- | ------- |--------------------------------------------------------------------------------------|
+| -m, --wallet-manager          | string  | Wallet file name           | M       | Include the file extension.<br/>e.g., omni.wallet                                    |
 | -p, --wallet-manager-password | string  | Wallet password            | M       | Must enter a user-defined password when creating the wallet file for the first time. |
-| -r, --file-remove         | boolean | Wallet file removal option | O       | Set this option to delete the file if it already exists. |
+| -r, --file-remove             | boolean | Wallet file removal option | O       | Set this option to delete the file if it already exists.                             |
 
 ### Command Declaration
 
@@ -117,12 +118,12 @@ Command:	walletmanager->CreateWallet
 
 ### Command Options
 
-| Option                    | Type   | Description              | **M/O** | **Notes**                                      |
-| ------------------------- | ------ | ------------------------ | ------- | ---------------------------------------------- |
-| -m, --wallet-manager      | string | Wallet file name         | M       | Enter with extension.<br/>e.g., omni.wallet  |
+| Option                        | Type   | Description              | **M/O** | **Notes**                                                                         |
+|-------------------------------| ------ | ------------------------ | ------- |-----------------------------------------------------------------------------------|
+| -m, --wallet-manager          | string | Wallet file name         | M       | Enter with extension.<br/>e.g., omni.wallet                                       |
 | -p, --wallet-manager-password | string | Wallet password          | M       | You must enter the user-defined password when creating the file wallet initially. |
-| -i, --key-id              | string | Key ID                   | M       |                                                |
-| -t, --key-type            | int    | Key algorithm type       | M       | 0 : SECP256k1<br/>1 : SECP256r1               |
+| -i, --key-id   v              | string | Key ID                   | M       |                                                                                   |
+| -t, --key-type                | int    | Key algorithm type       | M       | 0 : SECP256k1<br/>1 : SECP256r1                                                   |
 
 ### Command Declaration
 
@@ -247,11 +248,11 @@ KeyId:invoke2, KeyType: SECP256r1...
 
 ### Command Options
 
-| Option                    | Type   | Description             | **M/O** | **Notes**                                |
-| ------------------------- | ------ | ----------------------- | ------- | ---------------------------------------- |
-| -m, --wallet-manager     | string | Wallet file name        | M       | Include the file extension.<br/>e.g., omni.wallet  |
-| -p, --wallet-manager-password| string | Wallet password         | M       | The password must be set when the wallet file is first created. |
-| -i, --key-id              | string | Key ID                  | M       |                                          |
+| Option                        | Type   | Description             | **M/O** | **Notes**                                                       |
+|-------------------------------| ------ | ----------------------- | ------- |-----------------------------------------------------------------|
+| -m, --wallet-manager          | string | Wallet file name        | M       | Include the file extension.<br/>e.g., omni.wallet               |
+| -p, --wallet-manager-password | string | Wallet password         | M       | The password must be set when the wallet file is first created. |
+| -i, --key-id                  | string | Key ID                  | M       |                                                                 |
 
 ### Command Declaration
 
@@ -355,9 +356,9 @@ Command:	walletmanager->RemoveKey
 
 ### Command Options
 
-| Option                    | Type   | Description         | **M/O** | **Notes**                                   |
-| ------------------------- | ------ | ------------------- | ------- | ------------------------------------------- |
-| -m, --wallet-manager          | string | Wallet file name    | M       | Enter with the extension.<br/>ex) omni.wallet |
+| Option                        | Type   | Description         | **M/O** | **Notes**                                                       |
+|-------------------------------| ------ | ------------------- | ------- |-----------------------------------------------------------------|
+| -m, --wallet-manager          | string | Wallet file name    | M       | Enter with the extension.<br/>ex) omni.wallet                   |
 | -p, --wallet-manager-password | string | Wallet password     | M       | Must enter the password set during the initial wallet creation. |
 
 ### Command Declaration
@@ -418,17 +419,17 @@ Key size: 5
 
 ### Command Options
 
-| Option                                  | Type    | Description              | **M/O** | **Note**                                                                           |
-| --------------------------------------- | ------- | ------------------------ | ------- | -------------------------------------------------------------------------------- |
-| -m, --wallet-manager    | string  | Wallet file name         | M       | Include the file extension.<br/>e.g., omni.wallet      |
-| -p, --wallet-manager-password  | string  | Wallet password          | M       | A user-defined password must be entered when creating the wallet file for the first time.  |
-| -f, --did-file                          | string  | DID file name            | M       | Include the file extension.<br/>e.g., omni.did                                                  |
-| -r, --file-remove                       | boolean | Whether to delete DID file | O       | Sets the option to delete the file if the DID file specified by -f option exists.                                     |
-| -id, --did-id                           | string  | DID ID                   | M       | e.g., did:example:abcdefg1234567890                                                |
-| -ci, --did-controller-id                | string  | DID Controller           | M       |                                                                                  |
-| -mi, --assertionMethod-key-id-list      | string  | DID Signature Key List   | M       | Separate with commas.<br/>e.g., assert, pin                                         |
-| -ai, --authentication-key-id-list       | string  | DID Authentication Key List | M       | Separate with commas.<br/>e.g., auth, auth2                                         |
-| -ki, --keyAgreement-key-id-list         | string  | DID Key Agreement Key List | M       | Separate with commas.<br/>e.g., keyagree, keyagree2                                 |
+| Option                                  | Type    | Description                        | **M/O** | **Note**                                                                                                     |
+|-----------------------------------------| ------- |------------------------------------| ------- |--------------------------------------------------------------------------------------------------------------|
+| -m, --wallet-manager                    | string  | Wallet file name                   | M       | Include the file extension.<br/>e.g., omni.wallet                                                            |
+| -p, --wallet-manager-password           | string  | Wallet password                    | M       | A user-defined password must be entered when creating the wallet file for the first time.                    |
+| -f, --did-file                          | string  | DID file name                      | M       | Include the file extension.<br/>e.g., omni.did                                                               |
+| -r, --file-remove                       | boolean | Whether to delete DID file         | O       | Sets the option to delete the file if the DID file specified by -f option exists.                            |
+| -id, --did-id                           | string  | DID ID                             | M       | e.g., did:example:abcdefg1234567890                                                                          |
+| -ci, --did-controller-id                | string  | DID Controller                     | M       |                                                                                                              |
+| -mi, --assertionMethod-key-id-list      | string  | DID Signature Key List             | M       | Separate with commas.<br/>e.g., assert, pin                                                                  |
+| -ai, --authentication-key-id-list       | string  | DID Authentication Key List        | M       | Separate with commas.<br/>e.g., auth, auth2                                                                  |
+| -ki, --keyAgreement-key-id-list         | string  | DID Key Agreement Key List         | M       | Separate with commas.<br/>e.g., keyagree, keyagree2                                                          |
 | -ii, --capabilityInvocation-key-id-list | string  | DID Capability Invocation Key List | O       | Optionally entered depending on the type of DID.<br/>Separate with commas.<br/>e.g., invoke, invoke2         |
 | -di, --capabilityDelegation-key-id-list | string  | DID Capability Delegation Key List | O       | Optionally entered depending on the type of DID.<br/>Separate with commas.<br/>e.g., delegation, delegation2 |
 
@@ -597,13 +598,13 @@ dids : (Refer to Data Sample)
 
 ### Command Options
 
-| Option                    | Type   | Description       | **M/O** | **Note**                                                                                                               |
-| ------------------------- | ------ | ----------------- | ------- | ---------------------------------------------------------------------------------------------------------------------- |
-| -m, --wallet-manager| string | Wallet file name  | M       | Include the file extension.<br/>e.g., omni.wallet                                                                     |
-| -p, --wallet-manager-password | string | Wallet password   | M       | You must enter the user-defined password when the wallet file is first created.                                        |
-| -f, --did-file            | string | DID file name     | M       | Include the file extension.<br/>e.g., omni.did                                                                        |
-| -i, --key-id              | string | Key ID            | M       |                                                                                                                        |
-| -dt, --did-key-type       | string | DID Key Type      | M       | assert : assertionMethod<br/>auth : authentication<br/>keyagree : keyAgreement<br/>invoke : capabilityInvocation<br/>delegate : capabilityDelegation |
+| Option                        | Type   | Description       | **M/O** | **Note**                                                                                      |
+|-------------------------------| ------ | ----------------- | ------- | --------------------------------------------------------------------------------------------- |
+| -m, --wallet-manager          | string | Wallet file name  | M       | Include the file extension.<br/>e.g., omni.wallet                                             |
+| -p, --wallet-manager-password | string | Wallet password   | M       | You must enter the user-defined password when the wallet file is first created.               |
+| -f, --did-file                | string | DID file name     | M       | Include the file extension.<br/>e.g., omni.did                                                |
+| -i, --key-id                  | string | Key ID            | M       |                                                                                               |
+| -dt, --did-key-type           | string | DID Key Type      | M       | assert : assertionMethod<br/>auth : authentication<br/>keyagree : keyAgreement<br/>invoke : capabilityInvocation<br/>delegate : capabilityDelegation |
 
 ### Command Declaration
 
@@ -763,12 +764,12 @@ dids : (Refer to Data Sample)
 
 ### Command Options
 
-| Option                    | Type   | Description         | **M/O** | **Notes**                              |
-| ------------------------- | ------ | ------------------- | ------- | ------------------------------------- |
-| -m, --wallet-manager    | string | Wallet file name    | M       | Include the extension.<br/>e.g., omni.wallet  |
-| -p, --wallet-manager-password| string | Wallet password     | M       | Must enter the password set during the initial wallet creation. |
-| -f, --did-file            | string | DID file name       | M       | Include the extension.<br/>e.g., omni.did     |
-| -i, --key-id              | string | Key ID              | M       |                                       |
+| Option                        | Type   | Description         | **M/O** | **Notes**                                                       |
+|-------------------------------| ------ | ------------------- | ------- |-----------------------------------------------------------------|
+| -m, --wallet-manager          | string | Wallet file name    | M       | Include the extension.<br/>e.g., omni.wallet                    |
+| -p, --wallet-manager-password | string | Wallet password     | M       | Must enter the password set during the initial wallet creation. |
+| -f, --did-file                | string | DID file name       | M       | Include the extension.<br/>e.g., omni.did                       |
+| -i, --key-id                  | string | Key ID              | M       |                                                                 |
 
 ### Command Declaration
 
@@ -913,14 +914,14 @@ dids : (Refer to Data Sample)
 
 ### Command Options
 
-| Option                    | Type   | Description                  | **M/O** | **Notes**                                                                          |
-| ------------------------- | ------ | ---------------------------- | ------- | ---------------------------------------------------------------------------------- |
-| -m, --wallet-manager  | string | Wallet file name             | M       | Include the extension.<br/>e.g., omni.wallet                                        |
-| -p, --wallet-manager-password  | string | Wallet password              | M       | Must enter a user-defined password when creating the wallet file initially.         |
-| -f, --did-file            | string | DID file name                | M       | Include the extension.<br/>e.g., omni.did                                           |
-| -si, --did-service-id     | string | DID service ID               | M       |                                                                                      |
-| -st, --did-service-type   | string | DID service type             | M       | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials |
-| -sul, --did-service-url-list | string | DID service URL              | M       | Specify as a comma-separated list.<br/>e.g., https://did.omnione.net, https://did.omnione.net2 |
+| Option                        | Type   | Description                  | **M/O** | **Notes**                                                                                      |
+|-------------------------------| ------ | ---------------------------- | ------- |------------------------------------------------------------------------------------------------|
+| -m, --wallet-manager          | string | Wallet file name             | M       | Include the extension.<br/>e.g., omni.wallet                                                   |
+| -p, --wallet-manager-password | string | Wallet password              | M       | Must enter a user-defined password when creating the wallet file initially.                    |
+| -f, --did-file                | string | DID file name                | M       | Include the extension.<br/>e.g., omni.did                                                      |
+| -si, --did-service-id         | string | DID service ID               | M       |                                                                                                |
+| -st, --did-service-type       | string | DID service type             | M       | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials            |
+| -sul, --did-service-url-list  | string | DID service URL              | M       | Specify as a comma-separated list.<br/>e.g., https://did.omnione.net, https://did.omnione.net2 |
 
 ### Command Declaration
 
@@ -1082,14 +1083,14 @@ dids : (Refer to Data Sample)
 
 ### Command Options
 
-| Option                    | Type   | Description        | **M/O** | **Notes**                                                                           |
-| ------------------------- | ------ | ------------------ | ------- | --------------------------------------------------------------------------------- |
-| -m, --wallet-manager   | string | Wallet file name   | M       | Include the file extension.<br/>ex) omni.wallet                                     |
-| -p, --wallet-manager-password| string | Wallet password    | M       | You must enter a user-defined password when creating the wallet file initially.   |
-| -f, --did-file            | string | DID file name      | M       | Include the file extension.<br/>ex) omni.did                                        |
-| -si, --did-service-id     | string | DID service ID     | M       |                                                                                   |
-| -st, --did-service-type   | string | DID service type   | O       | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials |
-| -su, --did-service-url    | string | DID service URL    | O       | Set one URL.<br/>ex) https://did.omnione.net                                        |
+| Option                        | Type   | Description        | **M/O** | **Notes**                                                                           |
+|-------------------------------| ------ | ------------------ | ------- |-------------------------------------------------------------------------------------|
+| -m, --wallet-manager          | string | Wallet file name   | M       | Include the file extension.<br/>ex) omni.wallet                                     |
+| -p, --wallet-manager-password | string | Wallet password    | M       | You must enter a user-defined password when creating the wallet file initially.     |
+| -f, --did-file                | string | DID file name      | M       | Include the file extension.<br/>ex) omni.did                                        |
+| -si, --did-service-id         | string | DID service ID     | M       |                                                                                     |
+| -st, --did-service-type       | string | DID service type   | O       | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials |
+| -su, --did-service-url        | string | DID service URL    | O       | Set one URL.<br/>ex) https://did.omnione.net                                        |
 
 ### Command Declaration
 
@@ -1250,9 +1251,9 @@ dids : (Refer to Data Sample)
 
 ### Command Options
 
-| Option         | Type   | Description         | **M/O** | **Notes**                          |
-| -------------- | ------ | ------------------- | ------- | --------------------------------- |
-| -f, --did-file | string | DID file name       | M       | Include the file extension.<br/>e.g., omni.did |
+| Option         | Type   | Description         | **M/O** | **Notes**                                        |
+| -------------- | ------ | ------------------- | ------- |--------------------------------------------------|
+| -f, --did-file | string | DID file name       | M       | Include the file extension.<br/>e.g., omni.did   |
 
 ### Command Declaration
 
@@ -1307,12 +1308,12 @@ Changes the version ID of the DID Document.
 
 ### Command Options
 
-| Option                    | Type   | Description                  | **M/O** | **Notes**                            |
-| ------------------------- | ------ | ---------------------------- | ------- | ------------------------------------ |
-| -m, --wallet-manager    | string | Wallet file name             | M       | Include the extension.<br/>e.g., omni.wallet  |
-| -p, --wallet-manager-password| string | Wallet password              | M       | You must enter a user-defined password when creating the wallet file initially. |
-| -f, --did-file            | string | DID file name                | M       | Include the extension.<br/>e.g., omni.did     |
-| -vi, --did-version-id     | int    | DID version ID               | M       | Enter as a decimal number greater than 1.                     |
+| Option                        | Type   | Description                  | **M/O** | **Notes**                                                                       |
+|-------------------------------| ------ | ---------------------------- | ------- |---------------------------------------------------------------------------------|
+| -m, --wallet-manager          | string | Wallet file name             | M       | Include the extension.<br/>e.g., omni.wallet                                    |
+| -p, --wallet-manager-password | string | Wallet password              | M       | You must enter a user-defined password when creating the wallet file initially. |
+| -f, --did-file                | string | DID file name                | M       | Include the extension.<br/>e.g., omni.did                                       |
+| -vi, --did-version-id         | int    | DID version ID               | M       | Enter as a decimal number greater than 1.                                       |
 
 ### Command Declaration
 
@@ -1468,17 +1469,18 @@ dids : (Refer to Data Sample)
 
 ### Command Options
 
-| Option                                  | Type    | Description   | **M/O** | **Notes**                                                                              |
-| --------------------------------------- | ------- | ------------- | ------- | -------------------------------------------------------------------------------- |
-| -m, --wallet-manager   | string | Wallet file name             | M       | Include the extension.<br/>e.g., omni.wallet  |
-| -p, --wallet-manager-password| string | Wallet password              | M       | Must enter the password set during the initial wallet creation.|
-| -f, --did-file            | string | DID file name      | M       | Include the file extension.<br/>ex) omni.did                                        |
-| -r, --file-remove                       | boolean | Whether to delete DID file | O       | Set this option to delete the file if it already exists. |
-| -id, --did-id                           | string  | DID ID                   | M       | e.g., did:example:abcdefg1234567890                                                |
-| -ci, --did-controller-id                | string  | DID Controller           | M       |                                                                                  |M       |                                                                                  |
-| -si, --did-service-id     | string | DID service ID     | O        |                                                                                   |
-| -st, --did-service-type   | string | DID service type   | O       | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials |
-| -su, --did-service-url    | string | DID service URL    | O       | Set one URL.<br/>ex) https://did.omnione.net                                        |
+| Option                        | Type    | Description                | **M/O** | **Notes**                                                                           |
+|-------------------------------|---------|----------------------------| ------ |-------------------------------------------------------------------------------------|
+| -m, --wallet-manager          | string  | Wallet file name           | M      | Include the extension.<br/>e.g., omni.wallet                                        |
+| -p, --wallet-manager-password | string  | Wallet password            | M      | Must enter the password set during the initial wallet creation.                     |
+| -t, --key-type                | int     | Key algorithm type         | O      | 0 : SECP256k1<br/>1 : SECP256r1</br>default : SECP256r1                             |
+| -f, --did-file                | string  | DID file name              | M      | Include the file extension.<br/>ex) omni.did                                        |
+| -r, --file-remove             | boolean | Whether to delete DID file | O      | Set this option to delete the file if it already exists.                            |
+| -id, --did-id                 | string  | DID ID                     | M      | e.g., did:example:abcdefg1234567890                                                 |
+| -ci, --did-controller-id      | string  | DID Controller             | M      |                                                                                     |                                                                                  |
+| -si, --did-service-id         | string  | DID service ID             | O      |                                                                                     |
+| -st, --did-service-type       | string  | DID service type           | O      | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials |
+| -su, --did-service-url        | string  | DID service URL            | O      | Set one URL.<br/>ex) https://did.omnione.net                                        |
 
 ### Command Declaration
 

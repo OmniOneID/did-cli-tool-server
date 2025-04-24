@@ -23,10 +23,10 @@ CLI Tool
 - 일자: 2024-08-29
 - 버전: v1.0.0
 
-| 버전     | 일자        | 변경 내용 |
-| ------ |------------| ----- |
-| v1.0.0 | 2024-08-29 | 초기 작성 |
-
+| 버전     | 일자        | 변경 내용                    |
+| ------ |------------|--------------------------|
+| v1.0.0 | 2024-08-29 | 초기 작성                    |
+| v1.0.0 | 2025-04-24 | SECP256k1 알고리즘 지원 명령어 수정  |
 <div style="page-break-after: always;"></div>
 
 # 목차
@@ -59,11 +59,11 @@ CLI Tool
 
 ### Command Options
 
-| Option                    | Type    | Description | **M/O** | **비고**                                      |
-| ------------------------- | ------- | ----------- | ------- | ------------------------------------------- |
-| -m, --wallet-manager         | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet          |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.         |
-| -r, --file-remove         | boolean | 월렛 파일 삭제 여부 | O       | -m 옵션으로 지정한 파일 월렛이 존재하는 경우 파일의 삭제 옵션을 설정한다. |
+| Option                        | Type    | Description  | **M/O** | **비고**                                       |
+|-------------------------------| ------- |--------------| ------- |----------------------------------------------|
+| -m, --wallet-manager          | string  | 월렛 파일 명      | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet           |
+| -p, --wallet-manager-password | string  | 월렛 비밀번호      | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.          |
+| -r, --file-remove             | boolean | 월렛 파일 삭제 여부  | O       | -m 옵션으로 지정한 파일 월렛이 존재하는 경우 파일의 삭제 옵션을 설정한다.  |
 
 ### Command Declaration
 
@@ -118,12 +118,12 @@ Command:	walletmanager->CreateWallet
 
 ### Command Options
 
-| Option                    | Type   | Description | **M/O** | **비고**                              |
-| ------------------------- | ------ | ----------- | ------- | ----------------------------------- |
-| -m, --wallet-manager         | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet          |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.         |
-| -i, --key-id              | string | 키 아이디       | M       |                                     |
-| -t, --key-type            | int    | 키 알고리즘 타입   | M       | 0 : SECP256k1<br/>1 : SECP256r1     |
+| Option                        | Type    | Description | **M/O** | **비고**                              |
+|-------------------------------|---------|-------------|---------|-------------------------------------|
+| -m, --wallet-manager          | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet  |
+| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다. |
+| -i, --key-id                  | string  | 키 아이디       | M       |                                     |
+| -t, --key-type                | int     | 키 알고리즘 타입   | M       | 0 : SECP256k1<br/>1 : SECP256r1     |
 
 ### Command Declaration
 
@@ -249,11 +249,11 @@ KeyId:invoke2, KeyType: SECP256r1...
 
 ### Command Options
 
-| Option                    | Type   | Description | **M/O** | **비고**                              |
-| ------------------------- | ------ | ----------- | ------- | ----------------------------------- |
-| -m, --wallet-manager         | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet          |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.         |
-| -i, --key-id              | string | 키 아이디       | M       |                                     |
+| Option                        | Type     | Description | **M/O** | **비고**                              |
+|-------------------------------|----------|-------------|---------|-------------------------------------|
+| -m, --wallet-manager          | string   | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet  |
+| -p, --wallet-manager-password | string   | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다. |
+| -i, --key-id                  | string   | 키 아이디       | M       |                                     |
 
 ### Command Declaration
 
@@ -357,10 +357,10 @@ Command:	walletmanager->RemoveKey
 
 ### Command Options
 
-| Option                    | Type   | Description | **M/O** | **비고**                              |
-| ------------------------- | ------ | ----------- | ------- | ----------------------------------- |
-| -m, --wallet-manager         | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet          |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.         |
+| Option                        | Type   | Description | **M/O** | **비고**                               |
+|-------------------------------| ------ |-------------|---------|--------------------------------------|
+| -m, --wallet-manager          | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet   |
+| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.  |
 
 ### Command Declaration
 
@@ -421,9 +421,9 @@ Key size: 5
 ### Command Options
 
 | Option                                  | Type    | Description   | **M/O** | **비고**                                                                           |
-| --------------------------------------- | ------- | ------------- | ------- | -------------------------------------------------------------------------------- |
-| -m, --wallet-manager         | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet          |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.         |
+|-----------------------------------------| ------- |---------------|---------|----------------------------------------------------------------------------------|
+| -m, --wallet-manager                    | string  | 월렛 파일 명       | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet                                               |
+| -p, --wallet-manager-password           | string  | 월렛 비밀번호       | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.                                              |
 | -f, --did-file                          | string  | DID 파일 명      | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did                                                  |
 | -r, --file-remove                       | boolean | DID 파일 삭제 여부  | O       | -f 옵션으로 지정한 DID 파일이 존재하는 경우 파일의 삭제 옵션을 설정한다.                                     |
 | -id, --did-id                           | string  | DID 아이디       | M       | ex) did:example:abcdefg1234567890                                                |
@@ -599,13 +599,13 @@ dids : (Data Sample 참고)
 
 ### Command Options
 
-| Option                    | Type   | Description | **M/O** | **비고**             |
-| ------------------------- | ------ | ----------- | ------- | ------------------------------------ |
-| -m, --wallet-manager| string  | 월렛 파일 명     | M    | 확장자 포함하여 입력한다.<br/>ex) omni.wallet |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M  | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.|
-| -f, --did-file            | string | DID 파일 명    | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did     |
-| -i, --key-id              | string | 키 아이디       | M       |                                       |
-| -dt, --did-key-type       | string | DID 키 타입    | M       | assert : assertionMethod<br/>auth : authentication<br/>keyagree : keyAgreement<br/>invoke : capabilityInvocation<br/>delegate : capabilityDelegation |
+| Option                        | Type     | Description | **M/O** | **비고**                                                                                                                                               |
+|-------------------------------|----------|-------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -m, --wallet-manager          | string   | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet                                                                                                                   |
+| -p, --wallet-manager-password | string   | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.                                                                                                                  |
+| -f, --did-file                | string   | DID 파일 명    | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did                                                                                                                      |
+| -i, --key-id                  | string   | 키 아이디       | M       |                                                                                                                                                      |
+| -dt, --did-key-type           | string   | DID 키 타입    | M       | assert : assertionMethod<br/>auth : authentication<br/>keyagree : keyAgreement<br/>invoke : capabilityInvocation<br/>delegate : capabilityDelegation |
 
 ### Command Declaration
 
@@ -765,12 +765,12 @@ dids : (Data Sample 참고)
 
 ### Command Options
 
-| Option                    | Type   | Description | **M/O** | **비고**                              |
-| ------------------------- | ------ | ----------- | ------- | ----------------------------------- |
-| -m, --wallet-manager    | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet    |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호  | M    | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.   |
-| -f, --did-file            | string | DID 파일 명    | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did     |
-| -i, --key-id              | string | 키 아이디       | M       |                                     |
+| Option                        | Type     | Description | **M/O** | **비고**                              |
+|-------------------------------|----------|-------------|---------|-------------------------------------|
+| -m, --wallet-manager          | string   | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet  |
+| -p, --wallet-manager-password | string   | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다. |
+| -f, --did-file                | string   | DID 파일 명    | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did     |
+| -i, --key-id                  | string   | 키 아이디       | M       |                                     |
 
 ### Command Declaration
 
@@ -915,14 +915,14 @@ dids : (Data Sample 참고)
 
 ### Command Options
 
-| Option                    | Type   | Description | **M/O** | **비고**                                                                              |
-| ------------------------- | ------ | ----------- | ------- | ----------------------------------------------------------------------------------- |
-| -m, --wallet-manager    | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet    |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호  | M    | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.   |
-| -f, --did-file            | string | DID 파일 명    | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did                                                     |
-| -si, --did-service-id     | string | DID 서비스 아이디 | M       |                                                                                     |
-| -st, --did-service-type   | string | DID 서비스 타입  | M       | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials |
-| -sul, --did-service-url-list    | string | DID 서비스 url | M       | comma(,)로 구분하여 설정한다.<br/>ex) https://did.omnione.net, https://did.omnione.net2      |
+| Option                        | Type    | Description | **M/O** | **비고**                                                                              |
+|-------------------------------|---------|-------------|---------|-------------------------------------------------------------------------------------|
+| -m, --wallet-manager          | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet                                                  |
+| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.                                                 |
+| -f, --did-file                | string  | DID 파일 명    | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did                                                     |
+| -si, --did-service-id         | string  | DID 서비스 아이디 | M       |                                                                                     |
+| -st, --did-service-type       | string  | DID 서비스 타입  | M       | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials |
+| -sul, --did-service-url-list  | string  | DID 서비스 url | M       | comma(,)로 구분하여 설정한다.<br/>ex) https://did.omnione.net, https://did.omnione.net2      |
 
 ### Command Declaration
 
@@ -1084,14 +1084,14 @@ dids : (Data Sample 참고)
 
 ### Command Options
 
-| Option                    | Type   | Description | **M/O** | **비고**                                                                              |
-| ------------------------- | ------ | ----------- | ------- | ----------------------------------------------------------------------------------- |
-| -m, --wallet-manager    | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet    |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호  | M    | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.   |
-| -f, --did-file            | string | DID 파일 명      | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did                                                     |
-| -si, --did-service-id     | string | DID 서비스 아이디 | M       |                                                                                     |
-| -st, --did-service-type   | string | DID 서비스 타입  | O       | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials |
-| -su, --did-service-url    | string | DID 서비스 url | O      | 하나의 url을 설정한다.<br/>ex) https://did.omnione.net                                      |
+| Option                        | Type     | Description  | **M/O** | **비고**                                                                              |
+|-------------------------------|----------|--------------|---------|-------------------------------------------------------------------------------------|
+| -m, --wallet-manager          | string   | 월렛 파일 명      | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet                                            |
+| -p, --wallet-manager-password | string   | 월렛 비밀번호      | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.                                     |
+| -f, --did-file                | string   | DID 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did                                                 |
+| -si, --did-service-id         | string   | DID 서비스 아이디  | M       |                                                                                     |
+| -st, --did-service-type       | string   | DID 서비스 타입   | O       | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials |
+| -su, --did-service-url        | string   | DID 서비스 url  | O       | 하나의 url을 설정한다.<br/>ex) https://did.omnione.net                                      |
 
 ### Command Declaration
 
@@ -1252,9 +1252,9 @@ dids : (Data Sample 참고)
 
 ### Command Options
 
-| Option         | Type   | Description | **M/O** | **비고**                          |
-| -------------- | ------ | ----------- | ------- | ------------------------------- |
-| -f, --did-file | string | DID 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did |
+| Option         | Type   | Description | **M/O** | **비고**                           |
+| -------------- | ------ |-----------|------|----------------------------------|
+| -f, --did-file | string | DID 파일 명  | M    | 확장자 포함하여 입력한다.<br/>ex) omni.did  |
 
 ### Command Declaration
 
@@ -1309,12 +1309,12 @@ DID versionId: 1
 
 ### Command Options
 
-| Option                    | Type   | Description | **M/O** | **비고**                              |
-| ------------------------- | ------ | ----------- | ------- | ----------------------------------- |
-| -m, --wallet-manager    | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet    |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호  | M    | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.   |
-| -f, --did-file            | string | DID 파일 명  | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did     |
-| -vi, --did-version-id     | int    | DID 버전 아이디  | M       | 1이상의 십진수로 입력한다.                     |
+| Option                        | Type     | Description | **M/O** | **비고**                              |
+|-------------------------------|----------|-------------|---------|-------------------------------------|
+| -m, --wallet-manager          | string   | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet  |
+| -p, --wallet-manager-password | string   | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다. |
+| -f, --did-file                | string   | DID 파일 명    | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did     |
+| -vi, --did-version-id         | int      | DID 버전 아이디  | M       | 1이상의 십진수로 입력한다.                     |
 
 ### Command Declaration
 
@@ -1468,17 +1468,18 @@ dids : (Data Sample 참고)
 
 ### Command Options
 
-| Option                                  | Type    | Description   | **M/O** | **비고**                                                                           |
-| --------------------------------------- | ------- | ------------- | ------- | -------------------------------------------------------------------------------- |
-| -m, --wallet-manager    | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet    |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호  | M    | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.   |
-| -f, --did-file                          | string  | DID 파일 명      | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did                                                  |
-| -r, --file-remove                       | boolean | DID 파일 삭제 여부  | O       | -f 옵션으로 지정한 DID 파일이 존재하는 경우 파일의 삭제 옵션을 설정한다.                                     |
-| -id, --did-id                           | string  | DID 아이디       | M       | ex) did:example:abcdefg1234567890                                                |
-| -ci, --did-controller-id                | string  | DID 컨트롤러      | M       |                                                                                  |
-| -si, --did-service-id     | string | DID 서비스 아이디 |O       |          |
-| -st, --did-service-type   | string | DID 서비스 타입  | O      | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials |
-| -sul, --did-service-url-list    | string | DID 서비스 url | O      | comma(,)로 구분하여 설정한다.<br/>ex) https://did.omnione.net, https://did.omnione.net2      |
+| Option                        | Type    | Description        | **M/O**  | **비고**                                                                              |
+|-------------------------------| ------- |--------------------|----------|-------------------------------------------------------------------------------------|
+| -m, --wallet-manager          | string  | 월렛 파일 명            | M        | 확장자 포함하여 입력한다.<br/>ex) omni.wallet                                                  |
+| -p, --wallet-manager-password | string  | 월렛 비밀번호            | M        | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.                                                 |
+| -t, --key-type                | int    | Key algorithm type | O        | 0 : SECP256k1<br/>1 : SECP256r1</br>default : SECP256r1                             |
+| -f, --did-file                | string  | DID 파일 명           | M        | 확장자 포함하여 입력한다.<br/>ex) omni.did                                                     |
+| -r, --file-remove             | boolean | DID 파일 삭제 여부       | O        | -f 옵션으로 지정한 DID 파일이 존재하는 경우 파일의 삭제 옵션을 설정한다.                                        |
+| -id, --did-id                 | string  | DID 아이디            | M        | ex) did:example:abcdefg1234567890                                                   |
+| -ci, --did-controller-id      | string  | DID 컨트롤러           | M        |                                                                                     |
+| -si, --did-service-id         | string | DID 서비스 아이디        | O        |                                                                                     |
+| -st, --did-service-type       | string | DID 서비스 타입         | O        | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials |
+| -sul, --did-service-url-list  | string | DID 서비스 url        | O        | comma(,)로 구분하여 설정한다.<br/>ex) https://did.omnione.net, https://did.omnione.net2      |
 
 
 ### Command Declaration
