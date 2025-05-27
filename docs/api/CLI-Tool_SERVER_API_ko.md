@@ -20,13 +20,13 @@ CLI Tool
 
 - 주제: CLI Tool Command
 - 작성: 이은정
-- 일자: 2024-08-29
-- 버전: v1.0.0
+- 일자: 2025-05-26
+- 버전: v2.0.0
 
-| 버전     | 일자        | 변경 내용 |
-| ------ |------------| ----- |
-| v1.0.0 | 2024-08-29 | 초기 작성 |
-
+| 버전     | 일자         | 변경 내용                    |
+|--------|------------|--------------------------|
+| v2.0.0 | 2025-05-26 | SECP256k1 알고리즘 지원 명령어 수정  |
+| v1.0.0 | 2024-08-29 | 초기 작성                    |
 <div style="page-break-after: always;"></div>
 
 # 목차
@@ -59,11 +59,11 @@ CLI Tool
 
 ### Command Options
 
-| Option                    | Type    | Description | **M/O** | **비고**                                      |
-| ------------------------- | ------- | ----------- | ------- | ------------------------------------------- |
-| -m, --wallet-manager         | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet          |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.         |
-| -r, --file-remove         | boolean | 월렛 파일 삭제 여부 | O       | -m 옵션으로 지정한 파일 월렛이 존재하는 경우 파일의 삭제 옵션을 설정한다. |
+| Option                        | Type    | Description  | **M/O** | **비고**                                       |
+|-------------------------------| ------- |--------------| ------- |----------------------------------------------|
+| -m, --wallet-manager          | string  | 월렛 파일 명      | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet           |
+| -p, --wallet-manager-password | string  | 월렛 비밀번호      | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.          |
+| -r, --file-remove             | boolean | 월렛 파일 삭제 여부  | O       | -m 옵션으로 지정한 파일 월렛이 존재하는 경우 파일의 삭제 옵션을 설정한다.  |
 
 ### Command Declaration
 
@@ -76,7 +76,7 @@ java -jar [모듈명] walletManager createWallet -m [wallet명] -p [password]
 
 ```shell
 # create omni.wallet in Shell
-java -jar did-cli-tool-server-1.0.0.jar walletManager createWallet -m omni.wallet -p           
+java -jar did-cli-tool-server.jar walletManager createWallet -m omni.wallet -p           
 ```
 
 ### CLI Properties Usage
@@ -87,7 +87,7 @@ java -jar did-cli-tool-server-1.0.0.jar walletManager createWallet -m omni.walle
   
   ```shell
   # command line
-  java -jar did-cli-tool-server-1.0.0.jar walletManager createWallet -p
+  java -jar did-cli-tool-server.jar walletManager createWallet -p
   ```
   
   ```shell
@@ -118,12 +118,12 @@ Command:	walletmanager->CreateWallet
 
 ### Command Options
 
-| Option                    | Type   | Description | **M/O** | **비고**                              |
-| ------------------------- | ------ | ----------- | ------- | ----------------------------------- |
-| -m, --wallet-manager         | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet          |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.         |
-| -i, --key-id              | string | 키 아이디       | M       |                                     |
-| -t, --key-type            | int    | 키 알고리즘 타입   | M       | 0 : SECP256k1<br/>1 : SECP256r1     |
+| Option                        | Type    | Description | **M/O** | **비고**                              |
+|-------------------------------|---------|-------------|---------|-------------------------------------|
+| -m, --wallet-manager          | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet  |
+| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다. |
+| -i, --key-id                  | string  | 키 아이디       | M       |                                     |
+| -t, --key-type                | int     | 키 알고리즘 타입   | M       | 0 : SECP256k1<br/>1 : SECP256r1     |
 
 ### Command Declaration
 
@@ -136,19 +136,19 @@ java -jar [모듈명] walletManager addKey -m [wallet명] -i [keyId] -t [keyType
 
 ```shell
 # Add secp256r1 type assert key to omni.wallet in Shell
-java -jar did-cli-tool-server-1.0.0.jar walletManager addKey -m omni.wallet -i assert -t 1 -p
+java -jar did-cli-tool-server.jar walletManager addKey -m omni.wallet -i assert -t 1 -p
 
 # Add secp256r1 type auth key to omni.wallet in Shell
-java -jar did-cli-tool-server-1.0.0.jar walletManager addKey -m omni.wallet -i auth -t 1 -p
+java -jar did-cli-tool-server.jar walletManager addKey -m omni.wallet -i auth -t 1 -p
 
 # Add secp256r1 type keyagree key to omni.wallet in Shell
-java -jar did-cli-tool-server-1.0.0.jar walletManager addKey -m omni.wallet -i keyagree -t 1 -p
+java -jar did-cli-tool-server.jar walletManager addKey -m omni.wallet -i keyagree -t 1 -p
 
 # Add secp256r1 type invoke key to omni.wallet in Shell
-java -jar did-cli-tool-server-1.0.0.jar walletManager addKey -m omni.wallet -i invoke -t 1 -p
+java -jar did-cli-tool-server.jar walletManager addKey -m omni.wallet -i invoke -t 1 -p
 
 # Add secp256r1 type invoke2 key to omni.wallet in Shell
-java -jar did-cli-tool-server-1.0.0.jar walletManager addKey -m omni.wallet -i invoke2 -t 1 -p
+java -jar did-cli-tool-server.jar walletManager addKey -m omni.wallet -i invoke2 -t 1 -p
 ```
 
 ### CLI Properties Usage
@@ -159,7 +159,7 @@ java -jar did-cli-tool-server-1.0.0.jar walletManager addKey -m omni.wallet -i i
   
   ```shell
   # command line
-  java -jar did-cli-tool-server-1.0.0.jar walletManager addKey -p
+  java -jar did-cli-tool-server.jar walletManager addKey -p
   ```
   
   ```shell
@@ -175,7 +175,7 @@ java -jar did-cli-tool-server-1.0.0.jar walletManager addKey -m omni.wallet -i i
 Enter value for --wallet-manager-password (Wallet password): (비밀번호 입력)
 == wallet add key call ==
 Command:	walletmanager->AddKey
-KeyId:invoke2, KeyType: SECP256r1...
+KeyId:invoke2, KeyType: SECP256r1
 [SUCCESS] WalletManager add key success...
 ```
 
@@ -249,11 +249,11 @@ KeyId:invoke2, KeyType: SECP256r1...
 
 ### Command Options
 
-| Option                    | Type   | Description | **M/O** | **비고**                              |
-| ------------------------- | ------ | ----------- | ------- | ----------------------------------- |
-| -m, --wallet-manager         | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet          |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.         |
-| -i, --key-id              | string | 키 아이디       | M       |                                     |
+| Option                        | Type     | Description | **M/O** | **비고**                              |
+|-------------------------------|----------|-------------|---------|-------------------------------------|
+| -m, --wallet-manager          | string   | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet  |
+| -p, --wallet-manager-password | string   | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다. |
+| -i, --key-id                  | string   | 키 아이디       | M       |                                     |
 
 ### Command Declaration
 
@@ -265,7 +265,7 @@ java -jar [모듈명] walletManager removeKey -m [wallet명] -i [키아이디] -
 ### Command Usage
 
 ```shell
-java -jar did-cli-tool-server-1.0.0.jar walletManager removeKey -m omni.wallet -i invoke2 -p
+java -jar did-cli-tool-server.jar walletManager removeKey -m omni.wallet -i invoke2 -p
 ```
 
 ### CLI Properties Usage
@@ -276,7 +276,7 @@ java -jar did-cli-tool-server-1.0.0.jar walletManager removeKey -m omni.wallet -
   
   ```shell
   # command line
-  java -jar did-cli-tool-server-1.0.0.jar walletManager removeKey -m omni.wallet -p
+  java -jar did-cli-tool-server.jar walletManager removeKey -m omni.wallet -p
   ```
   
   ```shell
@@ -357,10 +357,10 @@ Command:	walletmanager->RemoveKey
 
 ### Command Options
 
-| Option                    | Type   | Description | **M/O** | **비고**                              |
-| ------------------------- | ------ | ----------- | ------- | ----------------------------------- |
-| -m, --wallet-manager         | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet          |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.         |
+| Option                        | Type   | Description | **M/O** | **비고**                               |
+|-------------------------------| ------ |-------------|---------|--------------------------------------|
+| -m, --wallet-manager          | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet   |
+| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.  |
 
 ### Command Declaration
 
@@ -372,7 +372,7 @@ java -jar [모듈명] walletManager keyList -m [wallet명] -p [password]
 ### Command Usage
 
 ```shell
-java -jar did-cli-tool-server-1.0.0.jar walletManager keyList -m omni.wallet -p
+java -jar did-cli-tool-server.jar walletManager keyList -m omni.wallet -p
 ```
 
 ### CLI Properties Usage
@@ -383,7 +383,7 @@ java -jar did-cli-tool-server-1.0.0.jar walletManager keyList -m omni.wallet -p
   
   ```shell
   # command line
-  java -jar did-cli-tool-server-1.0.0.jar walletManager keyList -p
+  java -jar did-cli-tool-server.jar walletManager keyList -p
   ```
   
   ```shell
@@ -421,9 +421,9 @@ Key size: 5
 ### Command Options
 
 | Option                                  | Type    | Description   | **M/O** | **비고**                                                                           |
-| --------------------------------------- | ------- | ------------- | ------- | -------------------------------------------------------------------------------- |
-| -m, --wallet-manager         | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet          |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.         |
+|-----------------------------------------| ------- |---------------|---------|----------------------------------------------------------------------------------|
+| -m, --wallet-manager                    | string  | 월렛 파일 명       | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet                                               |
+| -p, --wallet-manager-password           | string  | 월렛 비밀번호       | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.                                              |
 | -f, --did-file                          | string  | DID 파일 명      | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did                                                  |
 | -r, --file-remove                       | boolean | DID 파일 삭제 여부  | O       | -f 옵션으로 지정한 DID 파일이 존재하는 경우 파일의 삭제 옵션을 설정한다.                                     |
 | -id, --did-id                           | string  | DID 아이디       | M       | ex) did:example:abcdefg1234567890                                                |
@@ -444,7 +444,7 @@ java -jar [모듈명] did createDid -m [wallet명] -f [did명] -id [didId] -ci [
 ### Command Usage
 
 ```shell
-java -jar did-cli-tool-server-1.0.0.jar did createDid -m omni.wallet -f omni.did -id did:omn:0123456789abcdef -ci controllerDid -mi assert -ai auth -ki keyagree -ii invoke,invoke2 -p
+java -jar did-cli-tool-server.jar did createDid -m omni.wallet -f omni.did -id did:omn:0123456789abcdef -ci controllerDid -mi assert -ai auth -ki keyagree -ii invoke,invoke2 -p
 ```
 
 ### CLI Properties Usage
@@ -455,7 +455,7 @@ java -jar did-cli-tool-server-1.0.0.jar did createDid -m omni.wallet -f omni.did
   
   ```shell
   # command line
-  java -jar did-cli-tool-server-1.0.0.jar did createDid -m omni.wallet -f omni.did -p
+  java -jar did-cli-tool-server.jar did createDid -m omni.wallet -f omni.did -p
   ```
   
   ```shell
@@ -599,13 +599,13 @@ dids : (Data Sample 참고)
 
 ### Command Options
 
-| Option                    | Type   | Description | **M/O** | **비고**             |
-| ------------------------- | ------ | ----------- | ------- | ------------------------------------ |
-| -m, --wallet-manager| string  | 월렛 파일 명     | M    | 확장자 포함하여 입력한다.<br/>ex) omni.wallet |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M  | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.|
-| -f, --did-file            | string | DID 파일 명    | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did     |
-| -i, --key-id              | string | 키 아이디       | M       |                                       |
-| -dt, --did-key-type       | string | DID 키 타입    | M       | assert : assertionMethod<br/>auth : authentication<br/>keyagree : keyAgreement<br/>invoke : capabilityInvocation<br/>delegate : capabilityDelegation |
+| Option                        | Type     | Description | **M/O** | **비고**                                                                                                                                               |
+|-------------------------------|----------|-------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -m, --wallet-manager          | string   | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet                                                                                                                   |
+| -p, --wallet-manager-password | string   | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.                                                                                                                  |
+| -f, --did-file                | string   | DID 파일 명    | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did                                                                                                                      |
+| -i, --key-id                  | string   | 키 아이디       | M       |                                                                                                                                                      |
+| -dt, --did-key-type           | string   | DID 키 타입    | M       | assert : assertionMethod<br/>auth : authentication<br/>keyagree : keyAgreement<br/>invoke : capabilityInvocation<br/>delegate : capabilityDelegation |
 
 ### Command Declaration
 
@@ -617,7 +617,7 @@ java -jar [모듈명] did addKey -m [wallet명] -f [did명] -i [키아이디] -d
 ### Command Usage
 
 ```shell
-java -jar did-cli-tool-server-1.0.0.jar did addKey -m omni.wallet -f omni.did -i auth -dt assert -p
+java -jar did-cli-tool-server.jar did addKey -m omni.wallet -f omni.did -i auth -dt assert -p
 ```
 
 ### CLI Properties Usage
@@ -628,7 +628,7 @@ java -jar did-cli-tool-server-1.0.0.jar did addKey -m omni.wallet -f omni.did -i
   
   ```shell
   # command line
-  java -jar did-cli-tool-server-1.0.0.jar did addKey -m omni.wallet -f omni.did -p
+  java -jar did-cli-tool-server.jar did addKey -m omni.wallet -f omni.did -p
   ```
   
   ```shell
@@ -765,12 +765,12 @@ dids : (Data Sample 참고)
 
 ### Command Options
 
-| Option                    | Type   | Description | **M/O** | **비고**                              |
-| ------------------------- | ------ | ----------- | ------- | ----------------------------------- |
-| -m, --wallet-manager    | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet    |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호  | M    | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.   |
-| -f, --did-file            | string | DID 파일 명    | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did     |
-| -i, --key-id              | string | 키 아이디       | M       |                                     |
+| Option                        | Type     | Description | **M/O** | **비고**                              |
+|-------------------------------|----------|-------------|---------|-------------------------------------|
+| -m, --wallet-manager          | string   | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet  |
+| -p, --wallet-manager-password | string   | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다. |
+| -f, --did-file                | string   | DID 파일 명    | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did     |
+| -i, --key-id                  | string   | 키 아이디       | M       |                                     |
 
 ### Command Declaration
 
@@ -782,7 +782,7 @@ java -jar [모듈명] did removeKey -m [wallet명] -f [did명] -i [키아이디]
 ### Command Usage
 
 ```shell
-java -jar did-cli-tool-server-1.0.0.jar did removeKey -m omni.wallet -f omni.did -i invoke2 -p
+java -jar did-cli-tool-server.jar did removeKey -m omni.wallet -f omni.did -i invoke2 -p
 ```
 
 ### CLI Properties Usage
@@ -793,7 +793,7 @@ java -jar did-cli-tool-server-1.0.0.jar did removeKey -m omni.wallet -f omni.did
   
   ```shell
   # command line
-  java -jar did-cli-tool-server-1.0.0.jar did removeKey -m omni.wallet -p
+  java -jar did-cli-tool-server.jar did removeKey -m omni.wallet -p
   ```
   
   ```shell
@@ -915,14 +915,14 @@ dids : (Data Sample 참고)
 
 ### Command Options
 
-| Option                    | Type   | Description | **M/O** | **비고**                                                                              |
-| ------------------------- | ------ | ----------- | ------- | ----------------------------------------------------------------------------------- |
-| -m, --wallet-manager    | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet    |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호  | M    | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.   |
-| -f, --did-file            | string | DID 파일 명    | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did                                                     |
-| -si, --did-service-id     | string | DID 서비스 아이디 | M       |                                                                                     |
-| -st, --did-service-type   | string | DID 서비스 타입  | M       | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials |
-| -sul, --did-service-url-list    | string | DID 서비스 url | M       | comma(,)로 구분하여 설정한다.<br/>ex) https://did.omnione.net, https://did.omnione.net2      |
+| Option                        | Type    | Description | **M/O** | **비고**                                                                              |
+|-------------------------------|---------|-------------|---------|-------------------------------------------------------------------------------------|
+| -m, --wallet-manager          | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet                                                  |
+| -p, --wallet-manager-password | string  | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.                                                 |
+| -f, --did-file                | string  | DID 파일 명    | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did                                                     |
+| -si, --did-service-id         | string  | DID 서비스 아이디 | M       |                                                                                     |
+| -st, --did-service-type       | string  | DID 서비스 타입  | M       | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials |
+| -sul, --did-service-url-list  | string  | DID 서비스 url | M       | comma(,)로 구분하여 설정한다.<br/>ex) https://did.omnione.net, https://did.omnione.net2      |
 
 ### Command Declaration
 
@@ -934,7 +934,7 @@ java -jar [모듈명] did addService -m [wallet명] -f [did명] -si [서비스�
 ### Command Usage
 
 ```shell
-java -jar did-cli-tool-server-1.0.0.jar did addService -m omni.wallet -f omni.did -si homepage -st LinkedDomains -sul https://did.omnione.net,https://did.omnione.net2 -p
+java -jar did-cli-tool-server.jar did addService -m omni.wallet -f omni.did -si homepage -st LinkedDomains -sul https://did.omnione.net,https://did.omnione.net2 -p
 ```
 
 ### CLI Properties Usage
@@ -945,7 +945,7 @@ java -jar did-cli-tool-server-1.0.0.jar did addService -m omni.wallet -f omni.di
   
   ```shell
   # command line
-  java -jar did-cli-tool-server-1.0.0.jar did addService -m omni.wallet -f omni.did -p
+  java -jar did-cli-tool-server.jar did addService -m omni.wallet -f omni.did -p
   ```
   
   ```shell
@@ -1084,14 +1084,14 @@ dids : (Data Sample 참고)
 
 ### Command Options
 
-| Option                    | Type   | Description | **M/O** | **비고**                                                                              |
-| ------------------------- | ------ | ----------- | ------- | ----------------------------------------------------------------------------------- |
-| -m, --wallet-manager    | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet    |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호  | M    | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.   |
-| -f, --did-file            | string | DID 파일 명      | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did                                                     |
-| -si, --did-service-id     | string | DID 서비스 아이디 | M       |                                                                                     |
-| -st, --did-service-type   | string | DID 서비스 타입  | O       | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials |
-| -su, --did-service-url    | string | DID 서비스 url | O      | 하나의 url을 설정한다.<br/>ex) https://did.omnione.net                                      |
+| Option                        | Type     | Description  | **M/O** | **비고**                                                                              |
+|-------------------------------|----------|--------------|---------|-------------------------------------------------------------------------------------|
+| -m, --wallet-manager          | string   | 월렛 파일 명      | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet                                            |
+| -p, --wallet-manager-password | string   | 월렛 비밀번호      | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.                                     |
+| -f, --did-file                | string   | DID 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did                                                 |
+| -si, --did-service-id         | string   | DID 서비스 아이디  | M       |                                                                                     |
+| -st, --did-service-type       | string   | DID 서비스 타입   | O       | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials |
+| -su, --did-service-url        | string   | DID 서비스 url  | O       | 하나의 url을 설정한다.<br/>ex) https://did.omnione.net                                      |
 
 ### Command Declaration
 
@@ -1103,7 +1103,7 @@ java -jar [모듈명] did removeService -m [wallet명] -f [did명] -si [서비�
 ### Command Usage
 
 ```shell
-java -jar did-cli-tool-server-1.0.0.jar did removeService -m omni.wallet -f omni.did -si homepage -st LinkedDomains -su https://did.omnione.net -p
+java -jar did-cli-tool-server.jar did removeService -m omni.wallet -f omni.did -si homepage -st LinkedDomains -su https://did.omnione.net -p
 ```
 
 ### CLI Properties Usage
@@ -1114,7 +1114,7 @@ java -jar did-cli-tool-server-1.0.0.jar did removeService -m omni.wallet -f omni
   
   ```shell
   # command line
-  java -jar did-cli-tool-server-1.0.0.jar did removeService -m omni.wallet -f omni.did -p
+  java -jar did-cli-tool-server.jar did removeService -m omni.wallet -f omni.did -p
   ```
   
   ```shell
@@ -1252,9 +1252,9 @@ dids : (Data Sample 참고)
 
 ### Command Options
 
-| Option         | Type   | Description | **M/O** | **비고**                          |
-| -------------- | ------ | ----------- | ------- | ------------------------------- |
-| -f, --did-file | string | DID 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did |
+| Option         | Type   | Description | **M/O** | **비고**                           |
+| -------------- | ------ |-----------|------|----------------------------------|
+| -f, --did-file | string | DID 파일 명  | M    | 확장자 포함하여 입력한다.<br/>ex) omni.did  |
 
 ### Command Declaration
 
@@ -1266,7 +1266,7 @@ java -jar [모듈명] did version -f [did명]
 ### Command Usage
 
 ```shell
-java -jar did-cli-tool-server-1.0.0.jar did version -f omni.did
+java -jar did-cli-tool-server.jar did version -f omni.did
 ```
 
 ### CLI Properties Usage
@@ -1277,7 +1277,7 @@ java -jar did-cli-tool-server-1.0.0.jar did version -f omni.did
   
   ```shell
   # command line
-  java -jar did-cli-tool-server-1.0.0.jar did version
+  java -jar did-cli-tool-server.jar did version
   ```
   
   ```shell
@@ -1309,12 +1309,12 @@ DID versionId: 1
 
 ### Command Options
 
-| Option                    | Type   | Description | **M/O** | **비고**                              |
-| ------------------------- | ------ | ----------- | ------- | ----------------------------------- |
-| -m, --wallet-manager    | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet    |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호  | M    | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.   |
-| -f, --did-file            | string | DID 파일 명  | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did     |
-| -vi, --did-version-id     | int    | DID 버전 아이디  | M       | 1이상의 십진수로 입력한다.                     |
+| Option                        | Type     | Description | **M/O** | **비고**                              |
+|-------------------------------|----------|-------------|---------|-------------------------------------|
+| -m, --wallet-manager          | string   | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet  |
+| -p, --wallet-manager-password | string   | 월렛 비밀번호     | M       | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다. |
+| -f, --did-file                | string   | DID 파일 명    | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did     |
+| -vi, --did-version-id         | int      | DID 버전 아이디  | M       | 1이상의 십진수로 입력한다.                     |
 
 ### Command Declaration
 
@@ -1326,7 +1326,7 @@ java -jar [모듈명] did updateVersion -m [wallet명] -f [did명] -vi [버전�
 ### Command Usage
 
 ```shell
-java -jar did-cli-tool-server-1.0.0.jar did updateVersion -m omni.wallet -f omni.did -vi 2 -p
+java -jar did-cli-tool-server.jar did updateVersion -m omni.wallet -f omni.did -vi 2 -p
 ```
 
 ### CLI Properties Usage
@@ -1337,7 +1337,7 @@ java -jar did-cli-tool-server-1.0.0.jar did updateVersion -m omni.wallet -f omni
   
   ```shell
   # command line
-  java -jar did-cli-tool-server-1.0.0.jar did updateVersion -m omni.wallet -f omni.did -p
+  java -jar did-cli-tool-server.jar did updateVersion -m omni.wallet -f omni.did -p
   ```
   
   ```shell
@@ -1468,17 +1468,18 @@ dids : (Data Sample 참고)
 
 ### Command Options
 
-| Option                                  | Type    | Description   | **M/O** | **비고**                                                                           |
-| --------------------------------------- | ------- | ------------- | ------- | -------------------------------------------------------------------------------- |
-| -m, --wallet-manager    | string  | 월렛 파일 명     | M       | 확장자 포함하여 입력한다.<br/>ex) omni.wallet    |
-| -p, --wallet-manager-password | string  | 월렛 비밀번호  | M    | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.   |
-| -f, --did-file                          | string  | DID 파일 명      | M       | 확장자 포함하여 입력한다.<br/>ex) omni.did                                                  |
-| -r, --file-remove                       | boolean | DID 파일 삭제 여부  | O       | -f 옵션으로 지정한 DID 파일이 존재하는 경우 파일의 삭제 옵션을 설정한다.                                     |
-| -id, --did-id                           | string  | DID 아이디       | M       | ex) did:example:abcdefg1234567890                                                |
-| -ci, --did-controller-id                | string  | DID 컨트롤러      | M       |                                                                                  |
-| -si, --did-service-id     | string | DID 서비스 아이디 |O       |          |
-| -st, --did-service-type   | string | DID 서비스 타입  | O      | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials |
-| -sul, --did-service-url-list    | string | DID 서비스 url | O      | comma(,)로 구분하여 설정한다.<br/>ex) https://did.omnione.net, https://did.omnione.net2      |
+| Option                        | Type    | Description        | **M/O**  | **비고**                                                                              |
+|-------------------------------| ------- |--------------------|----------|-------------------------------------------------------------------------------------|
+| -m, --wallet-manager          | string  | 월렛 파일 명            | M        | 확장자 포함하여 입력한다.<br/>ex) omni.wallet                                                  |
+| -p, --wallet-manager-password | string  | 월렛 비밀번호            | M        | 최초 파일 월렛 생성 시 사용자 지정 비밀번호를 입력해야 한다.                                                 |
+| -t, --key-type                | int    | Key algorithm type | O        | 0 : SECP256k1<br/>1 : SECP256r1</br>default : SECP256r1                             |
+| -f, --did-file                | string  | DID 파일 명           | M        | 확장자 포함하여 입력한다.<br/>ex) omni.did                                                     |
+| -r, --file-remove             | boolean | DID 파일 삭제 여부       | O        | -f 옵션으로 지정한 DID 파일이 존재하는 경우 파일의 삭제 옵션을 설정한다.                                        |
+| -id, --did-id                 | string  | DID 아이디            | M        | ex) did:example:abcdefg1234567890                                                   |
+| -ci, --did-controller-id      | string  | DID 컨트롤러           | M        |                                                                                     |
+| -si, --did-service-id         | string | DID 서비스 아이디        | O        |                                                                                     |
+| -st, --did-service-type       | string | DID 서비스 타입         | O        | LinkedDomains: site URL<br/>CredentialRegistry: URL to query verifiable credentials |
+| -sul, --did-service-url-list  | string | DID 서비스 url        | O        | comma(,)로 구분하여 설정한다.<br/>ex) https://did.omnione.net, https://did.omnione.net2      |
 
 
 ### Command Declaration
@@ -1491,7 +1492,7 @@ java -jar [모듈명] auto generator -m [wallet명] -f [did명] -id [didId] -ci 
 ### Command Usage
 
 ```shell
-java -jar did-cli-tool-server-1.0.0.jar auto generator -m omni.wallet -f omni.did -id did:omn:0123456789abcdef -ci controllerDid -p
+java -jar did-cli-tool-server.jar auto generator -m omni.wallet -f omni.did -id did:omn:0123456789abcdef -ci controllerDid -p
 ```
 
 ### CLI Properties Usage
@@ -1502,7 +1503,7 @@ java -jar did-cli-tool-server-1.0.0.jar auto generator -m omni.wallet -f omni.di
   
   ```shell
   # command line
-  java -jar did-cli-tool-server-1.0.0.jar auto generator -m omni.wallet -f omni.did -p
+  java -jar did-cli-tool-server.jar auto generator -m omni.wallet -f omni.did -p
   ```
   
   ```shell
@@ -1527,22 +1528,22 @@ Command:	walletmanager->CreateWallet
 ====== STEP 2 =====
 == wallet add key call ==
 Command:	walletmanager->AddKey
-KeyId:assert, KeyType: SECP256r1...
+KeyId:assert, KeyType: SECP256r1
 [SUCCESS] WalletManager add key success...
 Adding key id assert to wallet
 == wallet add key call ==
 Command:	walletmanager->AddKey
-KeyId:auth, KeyType: SECP256r1...
+KeyId:auth, KeyType: SECP256r1
 [SUCCESS] WalletManager add key success...
 Adding key id auth to wallet
 == wallet add key call ==
 Command:	walletmanager->AddKey
-KeyId:keyagree, KeyType: SECP256r1...
+KeyId:keyagree, KeyType: SECP256r1
 [SUCCESS] WalletManager add key success...
 Adding key id keyagree to wallet
 == wallet add key call ==
 Command:	walletmanager->AddKey
-KeyId:invoke, KeyType: SECP256r1...
+KeyId:invoke, KeyType: SECP256r1
 [SUCCESS] WalletManager add key success...
 Adding key id invoke to wallet
 ====== End 2 =====

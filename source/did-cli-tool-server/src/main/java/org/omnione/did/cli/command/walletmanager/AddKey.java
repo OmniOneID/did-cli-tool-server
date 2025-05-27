@@ -66,21 +66,8 @@ public class AddKey implements Callable<Void> {
 
         // 2. add key
         if (manager.isConnect()) {
-            // 2-1. case k1
-            if (getKeyAlgo(keyType) == CryptoKeyPairInfo.KeyAlgorithmType.SECP256k1) {
-                System.out.println("KeyId:"+ keyId+", KeyType: SECP256k1...");
-                manager.generateRandomKey(keyId, CryptoKeyPairInfo.KeyAlgorithmType.SECP256k1);
-
-                // 2-2. case r1
-            } else if (getKeyAlgo(keyType) == CryptoKeyPairInfo.KeyAlgorithmType.SECP256r1) {
-                System.out.println("KeyId:"+ keyId+", KeyType: SECP256r1...");
-                manager.generateRandomKey(keyId, CryptoKeyPairInfo.KeyAlgorithmType.SECP256r1);
-
-                // 2-3. case rsa
-            } else if (getKeyAlgo(keyType) == CryptoKeyPairInfo.KeyAlgorithmType.RSA2048) {
-                System.out.println("KeyId:"+ keyId+", KeyType: RSA...");
-                manager.generateRandomKey(keyId, CryptoKeyPairInfo.KeyAlgorithmType.RSA2048);
-            }
+            System.out.println("KeyId:"+ keyId+", KeyType: " + getKeyAlgo(keyType).getRawValue());
+            manager.generateRandomKey(keyId, getKeyAlgo(keyType));
             System.out.println("[SUCCESS] WalletManager add key success...");
         } else {
             System.out.println("[FAIL] WalletManager add key fail...");
