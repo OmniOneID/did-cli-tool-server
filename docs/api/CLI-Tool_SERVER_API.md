@@ -20,13 +20,13 @@ CLI Tool
 
 - Subject: CLI Tool Command
 - Author: Eunjeong Lee
-- Date: 2024-08-29
-- Version: v1.0.0
+- Date: 2025-05-26
+- Version: v2.0.0
 
 | Version | Date       | Changes                                                |
-| ------- |------------|--------------------------------------------------------|
-| v1.0.0 | 2024-08-29 | Initial version                                        |
-| v1.0.0 | 2025-04-24 | Modify the command to support the SECP256k1 algorithm |
+|---------|------------|--------------------------------------------------------|
+| v2.0.0  | 2025-05-26 | Modify the command to support the SECP256k1 algorithm |
+| v1.0.0  | 2024-08-29 | Initial version                                        |
 
 <div style="page-break-after: always;"></div>
 

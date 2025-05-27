@@ -4,7 +4,7 @@
 ## S/W 사양
 | 구분 | 내용                |
 |------|----------------------------|
-| Language  | Java 17|
+| Language  | Java 21|
 | Build System  | Gradle 8.8 |
 
 <br>
@@ -28,8 +28,8 @@ repositories {
 group = 'org.omnione.did'
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 dependencies {
@@ -39,15 +39,15 @@ dependencies {
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.9'
     implementation 'org.hibernate.validator:hibernate-validator:7.0.0.Final'
 
-    implementation files('libs/did-datamodel-sdk-server-1.0.0.jar')
-    implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
-    implementation files('libs/did-core-sdk-server-1.0.0.jar')
-    implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
+    implementation files('libs/did-datamodel-sdk-server-2.0.0.jar')
+    implementation files('libs/did-crypto-sdk-server-2.0.0.jar')
+    implementation files('libs/did-core-sdk-server-2.0.0.jar')
+    implementation files('libs/did-wallet-sdk-server-2.0.0.jar')
 }
 
 shadowJar {
     archiveBaseName.set('did-cli-tool-server')
-    archiveVersion.set('1.0.0')
+    archiveVersion.set('2.0.0')
     archiveClassifier.set('')
 
     manifest {
@@ -70,12 +70,12 @@ build {
 }
 ```
 2. IDE에서 `Gradle` 창을 열고, 프로젝트의 `Task > Build > Clean and Build` 태스크를 실행 또는 `./gradlew clean build` 를 터미널 창에 입력한다.
-3. 실행이 완료되면 `{projetPath}/build/libs/` 폴더에 `did-cli-tool-server-1.0.0.jar` 파일이 생성된다.
+3. 실행이 완료되면 `{projetPath}/build/libs/` 폴더에 `did-cli-tool-server-2.0.0.jar` 파일이 생성된다.
 
 <br>
 
 ## SDK 적용 방법
-1. 빌드된 서버 모듈 `did-cli-tool-server-1.0.0.jar` 파일의 위치에서 새로운 터미널 창을 연다.
+1. 빌드된 서버 모듈 `did-cli-tool-server-2.0.0.jar` 파일의 위치에서 새로운 터미널 창을 연다.
 2. [CLI-Tool_SERVER_API.md](../../docs/api/CLI-Tool_SERVER_API_ko.md)를 참고하여 사용할 명령어를 입력한다.
 
 <br>

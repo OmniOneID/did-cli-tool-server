@@ -35,7 +35,7 @@ did-cli-tool-server
     │   ├── settings.gradle
     │   └── src
     └── releases
-        └── did-cli-tool-server-1.0.0.jar
+        └── did-cli-tool-server-2.0.0.jar
 ```
 
 | 이름                      | 역할                     |
@@ -73,8 +73,8 @@ repositories {
 group = 'org.omnione.did'
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 dependencies {
@@ -84,15 +84,15 @@ dependencies {
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.9'
     implementation 'org.hibernate.validator:hibernate-validator:7.0.0.Final'
 
-    implementation files('libs/did-datamodel-sdk-server-1.0.0.jar')
-    implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
-    implementation files('libs/did-core-sdk-server-1.0.0.jar')
-    implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
+    implementation files('libs/did-datamodel-sdk-server-2.0.0.jar')
+    implementation files('libs/did-crypto-sdk-server-2.0.0.jar')
+    implementation files('libs/did-core-sdk-server-2.0.0.jar')
+    implementation files('libs/did-wallet-sdk-server-2.0.0.jar')
 }
 
 shadowJar {
     archiveBaseName.set('did-cli-tool-server')
-    archiveVersion.set('1.0.0')
+    archiveVersion.set('2.0.0')
     archiveClassifier.set('')
 
     manifest {
@@ -115,7 +115,7 @@ build {
 }
 ```
 2. IDE에서 `Gradle` 창을 열고, 프로젝트의 `Task > Build > Clean and Build` 태스크를 실행 또는 `./gradlew clean build` 를 터미널 창에 입력한다.
-3. 실행이 완료되면 `{projetPath}/build/libs/` 폴더에 `did-cli-tool-server-1.0.0.jar` 파일이 생성된다.
+3. 실행이 완료되면 `{projetPath}/build/libs/` 폴더에 `did-cli-tool-server-2.0.0.jar` 파일이 생성된다.
 
 <br>
 
@@ -126,10 +126,10 @@ build {
 ### Cli-Tool
 
 1. 서버 프로젝트에 아래 목록의 각 파일을 복사한다.
-   <br> - `did-datamodel-server-1.0.0.jar`
-   <br> - `did-crypto-sdk-server-1.0.0.jar`
-   <br> - `did-core-sdk-server-1.0.0.jar`
-   <br> - `did-wallet-sdk-server-1.0.0.jar`
+   <br> - `did-datamodel-server-2.0.0.jar`
+   <br> - `did-crypto-sdk-server-2.0.0.jar`
+   <br> - `did-core-sdk-server-2.0.0.jar`
+   <br> - `did-wallet-sdk-server-2.0.0.jar`
 
 2. 서버 프로젝트의 build gradle에 아래 의존성을 추가한다.
 
@@ -141,10 +141,10 @@ build {
    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.9'
    implementation 'org.hibernate.validator:hibernate-validator:7.0.0.Final'
    
-   implementation files('libs/did-datamodel-sdk-server-1.0.0.jar')
-   implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
-   implementation files('libs/did-core-sdk-server-1.0.0.jar')
-   implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
+   implementation files('libs/did-datamodel-sdk-server-2.0.0.jar')
+   implementation files('libs/did-crypto-sdk-server-2.0.0.jar')
+   implementation files('libs/did-core-sdk-server-2.0.0.jar')
+   implementation files('libs/did-wallet-sdk-server-2.0.0.jar')
 ```
 3. `Gradle`을 동기화하여 의존성이 제대로 추가되었는지 확인한다.
 

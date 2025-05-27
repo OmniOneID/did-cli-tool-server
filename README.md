@@ -35,7 +35,7 @@ did-cli-tool-server
     │   ├── settings.gradle
     │   └── src
     └── releases
-        └── did-cli-tool-server-1.0.0.jar
+        └── did-cli-tool-server-2.0.0.jar
 ```
 
 | Name                    | Description                                     |
@@ -74,8 +74,8 @@ repositories {
 group = 'org.omnione.did'
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 dependencies {
@@ -85,15 +85,15 @@ dependencies {
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.9'
     implementation 'org.hibernate.validator:hibernate-validator:7.0.0.Final'
 
-    implementation files('libs/did-datamodel-sdk-server-1.0.0.jar')
-    implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
-    implementation files('libs/did-core-sdk-server-1.0.0.jar')
-    implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
+    implementation files('libs/did-datamodel-sdk-server-2.0.0.jar')
+    implementation files('libs/did-crypto-sdk-server-2.0.0.jar')
+    implementation files('libs/did-core-sdk-server-2.0.0.jar')
+    implementation files('libs/did-wallet-sdk-server-2.0.0.jar')
 }
 
 shadowJar {
     archiveBaseName.set('did-cli-tool-server')
-    archiveVersion.set('1.0.0')
+    archiveVersion.set('2.0.0')
     archiveClassifier.set('')
 
     manifest {
@@ -116,7 +116,7 @@ build {
 }
 ```
 2. Open the `Gradle` tab in IDE and run the project's `Task > Build > Clean and Build` task, or type `./gradlew clean build` in a terminal.
-3. Once the execution is complete, the `did-cli-tool-server-1.0.0.jar` file will be generated in the `{projetPath}/build/libs/` folder.
+3. Once the execution is complete, the `did-cli-tool-server-2.0.0.jar` file will be generated in the `{projetPath}/build/libs/` folder.
 
 <br>
 
@@ -126,10 +126,10 @@ Libraries can be found in the [Releases](https://github.com/OmniOneID/did-cli-to
 
 ### Cli-Tool
 1. Copy each of the files below to the libs in your server project.
-   <br> - `did-datamodel-server-1.0.0.jar`
-   <br> - `did-crypto-sdk-server-1.0.0.jar`
-   <br> - `did-core-sdk-server-1.0.0.jar`
-   <br> - `did-wallet-sdk-server-1.0.0.jar`
+   <br> - `did-datamodel-server-2.0.0.jar`
+   <br> - `did-crypto-sdk-server-2.0.0.jar`
+   <br> - `did-core-sdk-server-2.0.0.jar`
+   <br> - `did-wallet-sdk-server-2.0.0.jar`
 
 2. Add the following dependencies to the build.gradle of the server project.
 
@@ -140,10 +140,10 @@ Libraries can be found in the [Releases](https://github.com/OmniOneID/did-cli-to
    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.9'
    implementation 'org.hibernate.validator:hibernate-validator:7.0.0.Final'
 
-   implementation files('libs/did-datamodel-sdk-server-1.0.0.jar')
-   implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
-   implementation files('libs/did-core-sdk-server-1.0.0.jar')
-   implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
+   implementation files('libs/did-datamodel-sdk-server-2.0.0.jar')
+   implementation files('libs/did-crypto-sdk-server-2.0.0.jar')
+   implementation files('libs/did-core-sdk-server-2.0.0.jar')
+   implementation files('libs/did-wallet-sdk-server-2.0.0.jar')
 ```
 3. Sync `Gradle` to ensure the dependencies are properly added.
 
