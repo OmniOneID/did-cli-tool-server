@@ -11,7 +11,7 @@ did-cli-tool-server
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── LICENSE
-├── LICENSE-dependencies.md
+├── dependencies-license.md
 ├── MAINTAINERS.md
 ├── README.md
 ├── README_ko.md
@@ -35,11 +35,11 @@ did-cli-tool-server
     │   ├── settings.gradle
     │   └── src
     └── releases
-        └── did-cli-tool-server-1.0.0.jar
+        └── did-cli-tool-server-2.0.0.jar
 ```
 
 | Name                    | Description                                     |
-| ----------------------- | ----------------------------------------------- |
+|-------------------------|-------------------------------------------------|
 | source                  | SDK source code project                         |
 | docs                    | Documentation                                   |
 | ┖ api                   | API guide documentation                         |
@@ -48,8 +48,8 @@ did-cli-tool-server
 | CHANGELOG.md            | Version-specific changes in the project         |
 | CODE_OF_CONDUCT.md      | Code of conduct for contributors                |
 | CONTRIBUTING.md         | Contribution guidelines and procedures          |
-| LICENSE | Apache 2.0 |
-| LICENSE-dependencies.md | Licenses for the project’s dependency libraries |
+| LICENSE                 | Apache 2.0                                      |
+| dependencies-license.md | Licenses for the project’s dependency libraries |
 | MAINTAINERS.md          | General guidelines for maintaining              |
 | RELEASE-PROCESS.md      | Release process                                 |
 | SECURITY.md             | Security policies and vulnerability reporting   |
@@ -74,8 +74,8 @@ repositories {
 group = 'org.omnione.did'
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 dependencies {
@@ -85,15 +85,15 @@ dependencies {
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.9'
     implementation 'org.hibernate.validator:hibernate-validator:7.0.0.Final'
 
-    implementation files('libs/did-datamodel-sdk-server-1.0.0.jar')
-    implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
-    implementation files('libs/did-core-sdk-server-1.0.0.jar')
-    implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
+    implementation files('libs/did-datamodel-sdk-server-2.0.0.jar')
+    implementation files('libs/did-crypto-sdk-server-2.0.0.jar')
+    implementation files('libs/did-core-sdk-server-2.0.0.jar')
+    implementation files('libs/did-wallet-sdk-server-2.0.0.jar')
 }
 
 shadowJar {
     archiveBaseName.set('did-cli-tool-server')
-    archiveVersion.set('1.0.0')
+    archiveVersion.set('2.0.0')
     archiveClassifier.set('')
 
     manifest {
@@ -116,7 +116,7 @@ build {
 }
 ```
 2. Open the `Gradle` tab in IDE and run the project's `Task > Build > Clean and Build` task, or type `./gradlew clean build` in a terminal.
-3. Once the execution is complete, the `did-cli-tool-server-1.0.0.jar` file will be generated in the `{projetPath}/build/libs/` folder.
+3. Once the execution is complete, the `did-cli-tool-server-2.0.0.jar` file will be generated in the `{projetPath}/build/libs/` folder.
 
 <br>
 
@@ -126,10 +126,10 @@ Libraries can be found in the [Releases](https://github.com/OmniOneID/did-cli-to
 
 ### Cli-Tool
 1. Copy each of the files below to the libs in your server project.
-   <br> - `did-datamodel-server-1.0.0.jar`
-   <br> - `did-crypto-sdk-server-1.0.0.jar`
-   <br> - `did-core-sdk-server-1.0.0.jar`
-   <br> - `did-wallet-sdk-server-1.0.0.jar`
+   <br> - `did-datamodel-server-2.0.0.jar`
+   <br> - `did-crypto-sdk-server-2.0.0.jar`
+   <br> - `did-core-sdk-server-2.0.0.jar`
+   <br> - `did-wallet-sdk-server-2.0.0.jar`
 
 2. Add the following dependencies to the build.gradle of the server project.
 
@@ -140,10 +140,10 @@ Libraries can be found in the [Releases](https://github.com/OmniOneID/did-cli-to
    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.9'
    implementation 'org.hibernate.validator:hibernate-validator:7.0.0.Final'
 
-   implementation files('libs/did-datamodel-sdk-server-1.0.0.jar')
-   implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
-   implementation files('libs/did-core-sdk-server-1.0.0.jar')
-   implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
+   implementation files('libs/did-datamodel-sdk-server-2.0.0.jar')
+   implementation files('libs/did-crypto-sdk-server-2.0.0.jar')
+   implementation files('libs/did-core-sdk-server-2.0.0.jar')
+   implementation files('libs/did-wallet-sdk-server-2.0.0.jar')
 ```
 3. Sync `Gradle` to ensure the dependencies are properly added.
 
@@ -151,6 +151,16 @@ Libraries can be found in the [Releases](https://github.com/OmniOneID/did-cli-to
 
 API Reference can be found [here](docs/api/CLI-Tool_SERVER_API.md)
 
+## Change Log
+
+ChangeLog can be found :
+<br>
+- [Change Log](CHANGELOG.md)
+
+## OpenDID Demonstration Videos <br>
+To watch our demonstration videos of the OpenDID system in action, please visit our [Demo Repository](https://github.com/OmniOneID/did-demo-server). <br>
+
+These videos showcase key features including user registration, VC issuance, and VP submission processes.
 
 ## Contributing
 

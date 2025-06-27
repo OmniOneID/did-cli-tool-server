@@ -39,6 +39,9 @@ public class Generator implements Callable<Void> {
     @Option(names = {"-p", "--wallet-manager-password"}, required = true, interactive = true, description = "Wallet password")
     public char[] password;
 
+    @Option(names = {"-t", "--key-type"}, description = "Wallet key algorithm type: 0(SECP256k1), 1(SECP256r1), 2(RSA)")
+    public Integer keyType = 1;
+
     @Option(names = {"-f", "--did-file"}, required = true, description = "DID Document save file name")
     public File didFile;
 
@@ -94,6 +97,7 @@ public class Generator implements Callable<Void> {
 
             for (String walletKeyId : walletKeyList) {
                 walletKey.keyId = walletKeyId;
+                walletKey.keyType = keyType;
                 walletKey.call();
                 java.lang.System.out.println("Adding key id " + walletKeyId + " to wallet");
                 sleep();

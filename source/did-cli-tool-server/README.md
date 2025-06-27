@@ -5,7 +5,7 @@ This document is a guide to using the OpenDID Server CLI-Tool, which provides th
 ## S/W Specifications
 | Component | Requirement |
 |------|----------------------------|
-| Language  | Java 17|
+| Language  | Java 21|
 | Build System  | Gradle 8.8 |
 
 <br>
@@ -30,8 +30,8 @@ repositories {
 group = 'org.omnione.did'
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 dependencies {
@@ -41,15 +41,15 @@ dependencies {
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.9'
     implementation 'org.hibernate.validator:hibernate-validator:7.0.0.Final'
 
-    implementation files('libs/did-datamodel-sdk-server-1.0.0.jar')
-    implementation files('libs/did-crypto-sdk-server-1.0.0.jar')
-    implementation files('libs/did-core-sdk-server-1.0.0.jar')
-    implementation files('libs/did-wallet-sdk-server-1.0.0.jar')
+    implementation files('libs/did-datamodel-sdk-server-2.0.0.jar')
+    implementation files('libs/did-crypto-sdk-server-2.0.0.jar')
+    implementation files('libs/did-core-sdk-server-2.0.0.jar')
+    implementation files('libs/did-wallet-sdk-server-2.0.0.jar')
 }
 
 shadowJar {
     archiveBaseName.set('did-cli-tool-server')
-    archiveVersion.set('1.0.0')
+    archiveVersion.set('2.0.0')
     archiveClassifier.set('')
 
     manifest {
@@ -72,14 +72,14 @@ build {
 }
 ```
 2. Open the `Gradle` tab in IDE and run the project's `Task > Build > Clean and Build` task, or type `./gradlew clean build` in a terminal.
-3. Once the execution is complete, the `did-cli-tool-server-1.0.0.jar` file will be generated in the `{projetPath}/build/libs/` folder.
+3. Once the execution is complete, the `did-cli-tool-server-2.0.0.jar` file will be generated in the `{projetPath}/build/libs/` folder.
 
 
 <br>
 
 
 ## SDK Application Method
-1. Open a terminal in the location of the module `did-cli-tool-server-1.0.0.jar` file.
+1. Open a terminal in the location of the module `did-cli-tool-server-2.0.0.jar` file.
 2. Refer to [CLI-Tool_SERVER_API](../../docs/api/CLI-Tool_SERVER_API.md) and enter the command you want to use.
 
 
